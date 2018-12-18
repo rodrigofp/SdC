@@ -1,0 +1,2 @@
+class TipoContato < ApplicationRecord
+end

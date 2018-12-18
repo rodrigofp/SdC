@@ -1,0 +1,2 @@
+class TipoChamado < ApplicationRecord
+end

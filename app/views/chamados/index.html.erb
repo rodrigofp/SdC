@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Chamados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Data abertura</th>
+      <th>Data fechamento</th>
+      <th>Modulo</th>
+      <th>Tipo chamado</th>
+      <th>Prioridade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chamados.each do |chamado| %>
+      <tr>
+        <td><%= chamado.usuario %></td>
+        <td><%= chamado.data_abertura %></td>
+        <td><%= chamado.data_fechamento %></td>
+        <td><%= chamado.modulo %></td>
+        <td><%= chamado.tipo_chamado %></td>
+        <td><%= chamado.prioridade %></td>
+        <td><%= link_to 'Show', chamado %></td>
+        <td><%= link_to 'Edit', edit_chamado_path(chamado) %></td>
+        <td><%= link_to 'Destroy', chamado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chamado', new_chamado_path %>

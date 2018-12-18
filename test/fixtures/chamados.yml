@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  data_abertura: 2018-12-18 19:12:27
+  data_fechamento: 2018-12-18 19:12:27
+  modulo: one
+  tipo_chamado: one
+  prioridade: one
+
+two:
+  usuario: two
+  data_abertura: 2018-12-18 19:12:27
+  data_fechamento: 2018-12-18 19:12:27
+  modulo: two
+  tipo_chamado: two
+  prioridade: two

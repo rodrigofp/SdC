@@ -1,0 +1,1 @@
+json.partial! "atendimento_chamado_statuses/atendimento_chamado_status", atendimento_chamado_status: @atendimento_chamado_status

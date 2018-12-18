@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  senha: MyString
+  cpf: MyString
+  tipo_usuario: one
+  cliente: one
+
+two:
+  nome: MyString
+  senha: MyString
+  cpf: MyString
+  tipo_usuario: two
+  cliente: two

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Status Externos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @status_externos.each do |status_externo| %>
+      <tr>
+        <td><%= status_externo.nome %></td>
+        <td><%= link_to 'Show', status_externo %></td>
+        <td><%= link_to 'Edit', edit_status_externo_path(status_externo) %></td>
+        <td><%= link_to 'Destroy', status_externo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Status Externo', new_status_externo_path %>
