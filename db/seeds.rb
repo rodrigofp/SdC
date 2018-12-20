@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Prioridade.create([{nome: "Baixa"}, {nome: "Média"}, {nome: "Alta"}])
+TipoChamado.create([{tipo: "Erro"}, {tipo: "Inconsistência"}, {tipo: "Melhoria"}, {tipo: "Nova Funcionalidade"}])
+TipoContato.create([{tipo: "Telefone"}, {tipo: "Celular"}, {tipo: "E-mail"}])
+Cliente.create([{nome: "ATSD"}, {nome: "ADCCTA"}, {nome: "APVE"}, {nome: "ASSEM"}, {nome: "SEGVAP"}, {nome: "CPI"}])
+TipoUsuario.create([{tipo: "Diretor"}, {tipo: "Desenvolvedor"}, {tipo: "Qualidade"}, {tipo: "Atendimento"}, {tipo: "Cliente"}])

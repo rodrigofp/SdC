@@ -13,3 +13,4 @@
  *= require_tree .
  *= require_self
  */
+.nav-link:hover{color:inherit !important; background-color: inherit !important;}

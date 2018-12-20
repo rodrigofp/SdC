@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :senha %>
-    <%= form.text_field :senha %>
+    <%= form.password_field :senha %>
   </div>
 
   <div class="field">
@@ -28,12 +28,12 @@
 
   <div class="field">
     <%= form.label :tipo_usuario_id %>
-    <%= form.text_field :tipo_usuario_id %>
+    <%= collection_select :usuario, :tipo_usuario_id, @tipo_usuarios_all, :id, :tipo %>
   </div>
 
   <div class="field">
     <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id %>
+    <%= collection_select :usuario, :cliente_id, @clientes_all, :id, :nome %>
   </div>
 
   <div class="actions">

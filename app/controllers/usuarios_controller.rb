@@ -15,10 +15,12 @@ class UsuariosController < ApplicationController
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
+    get_options
   end
 
   # GET /usuarios/1/edit
   def edit
+    get_options
   end
 
   # POST /usuarios
@@ -65,6 +67,12 @@ class UsuariosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario
       @usuario = Usuario.find(params[:id])
+    end
+
+    #Holy Xerecas are theses the mf selects?!
+    def get_options
+      @clientes_all = Cliente.all
+      @tipo_usuarios_all = TipoUsuario.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
