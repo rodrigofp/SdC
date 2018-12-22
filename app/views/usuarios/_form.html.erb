@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+  <div class="field row form-group justify-content-center">
+    <%= form.label :nome, class: "col-2 col-form-label" %>
+    <%= form.text_field :nome, class: "form-control col-4" %>
   </div>
 
-  <div class="field">
-    <%= form.label :senha %>
-    <%= form.password_field :senha %>
+  <div class="field row form-group justify-content-center">
+    <%= form.label :senha, class: "col-2 col-form-label" %>
+    <%= form.password_field :senha, class: "form-control col-4" %>
   </div>
 
-  <div class="field">
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
+  <div class="field row form-group justify-content-center">
+    <%= form.label :cpf, class: "col-2 col-form-label" %>
+    <%= form.text_field :cpf, class: "form-control col-4" %>
   </div>
 
-  <div class="field">
-    <%= form.label :tipo_usuario_id %>
-    <%= collection_select :usuario, :tipo_usuario_id, @tipo_usuarios_all, :id, :tipo %>
+  <div class="field row form-group justify-content-center">
+    <%= form.label :tipo_usuario_id, class: "col-2 col-form-label" %>
+    <%= collection_select :usuario, :tipo_usuario_id, @tipo_usuarios_all, :id, :tipo, {}, class: "form-control col-4" %>
   </div>
 
-  <div class="field">
-    <%= form.label :cliente_id %>
-    <%= collection_select :usuario, :cliente_id, @clientes_all, :id, :nome %>
+  <div class="field row form-group justify-content-center">
+    <%= form.label :cliente_id, class: "col-2 col-form-label" %>
+    <%= collection_select :usuario, :cliente_id, @clientes_all, :id, :nome, {}, class: "form-control col-4" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions d-flex justify-content-center">
+    <%= form.submit "Salvar", class: "btn btn-outline-success" %>
   </div>
 <% end %>

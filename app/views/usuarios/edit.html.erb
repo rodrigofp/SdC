@@ -1,6 +1,12 @@
-<h1>Editing Usuario</h1>
+<div class="row justify-content-center">
+    <div class="col-8 ">
+        <div class="card border-warning">
+            <h1 class="card-header bg-warning">Alterar Usuário</h1>
 
-<%= render 'form', usuario: @usuario %>
+            <%= render 'form', usuario: @usuario %>
 
-<%= link_to 'Show', @usuario %> |
-<%= link_to 'Back', usuarios_path %>
+            <%= link_to 'Detalhes', @usuario, class: "btn btn-sm btn-outline-info" %>
+            <%= link_to 'Voltar', usuarios_path, class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+    </div>
+</div>

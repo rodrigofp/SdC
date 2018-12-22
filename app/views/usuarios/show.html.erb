@@ -1,29 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="row justify-content-center">
+    <div class="col-8 ">
+      <div class="card border-info">
+        <h1 class="card-header bg-info">Detalhes Cliente</h1>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @usuario.nome %>
-</p>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Senha:</strong>
-  <%= @usuario.senha %>
-</p>
+        <p>
+          <strong>Nome:</strong>
+          <%= @usuario.nome %>
+        </p>
 
-<p>
-  <strong>Cpf:</strong>
-  <%= @usuario.cpf %>
-</p>
+        <p>
+          <strong>Senha:</strong>
+          <%= @usuario.senha %>
+        </p>
 
-<p>
-  <strong>Tipo usuario:</strong>
-  <%= @usuario.tipo_usuario_id %>
-</p>
+        <p>
+          <strong>Cpf:</strong>
+          <%= @usuario.cpf %>
+        </p>
 
-<p>
-  <strong>Cliente:</strong>
-  <%= @usuario.cliente_id %>
-</p>
+        <p>
+          <strong>Tipo usuario:</strong>
+          <%= @usuario.tipo_usuario.tipo %>
+        </p>
 
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+        <p>
+          <strong>Cliente:</strong>
+          <%= @usuario.cliente.nome %>
+        </p>
+
+        <p>
+          <strong>Criado em:</strong>
+          <%= @usuario.created_at %>
+        </p>
+        <p>
+          <strong>Alterado em:</strong>
+          <%= @usuario.updated_at %>
+        </p>
+        <%= link_to 'Alterar', edit_usuario_path(@usuario), class: "btn btn-sm btn-outline-warning" %>
+        <%= link_to 'Voltar', usuarios_path, class: "btn btn-sm btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

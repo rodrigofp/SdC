@@ -28,7 +28,7 @@ class ContatosController < ApplicationController
 
     respond_to do |format|
       if @contato.save
-        format.html { redirect_to @contato, notice: 'Contato was successfully created.' }
+        format.html { redirect_to @contato, notice: 'Contato cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @contato }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ContatosController < ApplicationController
   def update
     respond_to do |format|
       if @contato.update(contato_params)
-        format.html { redirect_to @contato, notice: 'Contato was successfully updated.' }
+        format.html { redirect_to @contato, notice: 'Contato salvo com sucesso.' }
         format.json { render :show, status: :ok, location: @contato }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ContatosController < ApplicationController
   def destroy
     @contato.destroy
     respond_to do |format|
-      format.html { redirect_to contatos_url, notice: 'Contato was successfully destroyed.' }
+      format.html { redirect_to contatos_url, notice: 'Contato excluído com sucesso.' }
       format.json { head :no_content }
     end
   end
