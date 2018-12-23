@@ -15,10 +15,12 @@ class ContatosController < ApplicationController
   # GET /contatos/new
   def new
     @contato = Contato.new
+    get_options
   end
 
   # GET /contatos/1/edit
   def edit
+    get_options
   end
 
   # POST /contatos
@@ -28,7 +30,7 @@ class ContatosController < ApplicationController
 
     respond_to do |format|
       if @contato.save
-        format.html { redirect_to @contato, notice: 'Contato cadastrado com sucesso.' }
+        format.html { redirect_to edit_usuario_path(Usuario.find(@contato.usuario_id)), notice: 'Contato cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @contato }
       else
         format.html { render :new }
@@ -42,7 +44,8 @@ class ContatosController < ApplicationController
   def update
     respond_to do |format|
       if @contato.update(contato_params)
-        format.html { redirect_to @contato, notice: 'Contato salvo com sucesso.' }
+
+        format.html { redirect_to edit_usuario_path(Usuario.find(@contato.usuario_id)), notice: 'Contato salvo com sucesso.' }
         format.json { render :show, status: :ok, location: @contato }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class ContatosController < ApplicationController
   def destroy
     @contato.destroy
     respond_to do |format|
-      format.html { redirect_to contatos_url, notice: 'Contato excluído com sucesso.' }
+      format.html { redirect_to edit_usuario_path(Usuario.find(@contato.usuario_id)), notice: 'Contato excluído com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -67,6 +70,10 @@ class ContatosController < ApplicationController
       @contato = Contato.find(params[:id])
     end
 
+    def get_options
+      @usuario_all = Usuario.where(:id => params[:usuario]).all
+      @tipo_contato_all = TipoContato.all
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def contato_params
       params.require(:contato).permit(:contato, :tipo_contato_id, :usuario_id)

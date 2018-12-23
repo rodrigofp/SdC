@@ -1,13 +1,11 @@
 
-<p id="notice"><%= notice %></p>
-<div class="text-center">
-  <h1>Usuarios</h1>
+  <h1 class="card-header bg-grad">Usuarios</h1>
 
+  <p id="notice"><%= notice %></p>
   <table class="table table-hover text-left">
     <thead>
       <tr>
         <th>Nome</th>
-        <th>Senha</th>
         <th>Cpf</th>
         <th>Tipo usuario</th>
         <th>Cliente</th>
@@ -19,13 +17,12 @@
       <% @usuarios.each do |usuario| %>
         <tr>
           <td><%= usuario.nome %></td>
-          <td><%= usuario.senha %></td>
           <td><%= usuario.cpf %></td>
           <td><%= usuario.tipo_usuario.tipo %></td>
           <td><%= usuario.cliente.nome %></td>
-          <td><%= link_to 'Detalhes', usuario, class: "btn btn-sm btn-outline-info" %></td>
-          <td><%= link_to 'Alterar', edit_usuario_path(usuario), class: "btn btn-sm btn-outline-warning" %></td>
-          <td><%= link_to 'Excluir', usuario, class: "btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Detalhes', usuario, class: "btn btn-sm btn-grad bg-grad" %></td>
+          <td><%= link_to 'Alterar', edit_usuario_path(usuario), class: "btn btn-sm btn-grad bg-grad" %></td>
+          <td><%= link_to 'Excluir', usuario, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -33,5 +30,4 @@
 
   <br>
 
-  <%= link_to 'Novo Usuario', new_usuario_path, class: "btn btn-sm btn-outline-success" %>
-</div>
+  <%= link_to 'Novo Usuario', new_usuario_path, class: "btn btn-bottom btn-grad bg-grad" %>

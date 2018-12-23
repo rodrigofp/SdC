@@ -10,6 +10,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
+    get_contatos
   end
 
   # GET /usuarios/new
@@ -20,6 +21,8 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
+    @contatos = Contato.where(:usuario_id => @usuario.id).all 
+    puts @contatos.inspect
     get_options
   end
 
@@ -75,6 +78,10 @@ class UsuariosController < ApplicationController
       @tipo_usuarios_all = TipoUsuario.all
     end
     
+    def get_contatos
+      @contatos = Contato.where(:usuario_id => @usuario.id).all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
       params.require(:usuario).permit(:nome, :senha, :cpf, :tipo_usuario_id, :cliente_id)

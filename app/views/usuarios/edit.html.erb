@@ -1,12 +1,38 @@
-<div class="row justify-content-center">
-    <div class="col-8 ">
-        <div class="card border-warning">
-            <h1 class="card-header bg-warning">Alterar Usuário</h1>
 
-            <%= render 'form', usuario: @usuario %>
+<h1 class="card-header bg-grad">Alterar Usuário</h1>
 
-            <%= link_to 'Detalhes', @usuario, class: "btn btn-sm btn-outline-info" %>
-            <%= link_to 'Voltar', usuarios_path, class: "btn btn-sm btn-outline-secondary" %>
-        </div>
-    </div>
+<%= render 'form', usuario: @usuario %>
+
+<p id="notice"><%= notice %></p>
+
+<h3>Contatos</h3>
+
+<table class="table table-hover text-left"> 
+<thead>
+<tr>
+<th>Contato</th>
+<th>Tipo contato</th>
+<th colspan="3"></th>
+</tr>
+</thead>
+
+<tbody>
+<% @contatos.each do |contato| %>
+<tr>
+    <td><%= contato.tipo_contato.tipo %></td>
+    <td><%= contato.contato %></td>
+    <td><%= link_to 'Alterar', edit_contato_path(contato, :usuario => @usuario.id), class: "btn btn-sm btn-grad bg-grad" %></td>
+    <td><%= link_to 'Excluir', contato, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+<br>
+<div class="actions d-flex justify-content-center">
+<%= link_to 'Novo Contato', new_contato_path(:usuario => @usuario.id), class: "btn btn-grad bg-grad" %>
 </div>
+<br>
+<%= link_to 'Detalhes', @usuario, class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
+<%= link_to 'Voltar', usuarios_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
+

@@ -1,11 +1,6 @@
-<div class="row justify-content-center">
-    <div class="col-8 ">
-        <div class="card border-success">
-            <h1 class="card-header bg-success">Cadastrar Cliente</h1>
 
-            <%= render 'form', cliente: @cliente %>
+<h1 class="card-header bg-grad">Cadastrar Cliente</h1>
 
-            <%= link_to 'Voltar', clientes_path, class: "btn btn-sm btn-outline-secondary" %>
-        </div>
-    </div>
-</div>
+<%= render 'form', cliente: @cliente %>
+
+<%= link_to 'Voltar', clientes_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>

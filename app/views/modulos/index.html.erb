@@ -1,8 +1,8 @@
+
+<h1 class="card-header bg-grad">Módulos</h1>
+
 <p id="notice"><%= notice %></p>
-
-<h1>Modulos</h1>
-
-<table>
+<table class="table table-hover text-left">
   <thead>
     <tr>
       <th>Nome</th>
@@ -14,9 +14,9 @@
     <% @modulos.each do |modulo| %>
       <tr>
         <td><%= modulo.nome %></td>
-        <td><%= link_to 'Show', modulo %></td>
-        <td><%= link_to 'Edit', edit_modulo_path(modulo) %></td>
-        <td><%= link_to 'Destroy', modulo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalhes', modulo, class: "btn btn-sm btn-grad bg-grad" %></td>
+        <td><%= link_to 'Alterar', edit_modulo_path(modulo), class: "btn btn-sm btn-grad bg-grad" %></td>
+        <td><%= link_to 'Excluir', modulo, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Modulo', new_modulo_path %>
+<%= link_to 'Novo Módulo', new_modulo_path, class: "btn btn-bottom btn-sm btn-grad bg-grad" %>

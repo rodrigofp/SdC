@@ -1,28 +1,25 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <%= link_to "SdC", root_path, class: "btn btn-outline-info" %>
+    <%= link_to "SdC", root_path, class: "btn btn-grad bg-grad" %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ">
             <li class="nav-item">
-                <%= link_to "Clientes", clientes_path, class: "nav-link text-info" %>
+                <%= link_to "Clientes", clientes_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to "Usuários", usuarios_path, class: "nav-link text-info" %>
+                <%= link_to "Usuários", usuarios_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to "Contatos", contatos_path, class: "nav-link text-info" %>
+                <%= link_to "Módulos", modulos_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to "Módulos", modulos_path, class: "nav-link text-info" %>
+                <%= link_to "Chamados", chamados_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to "Chamados", chamados_path, class: "nav-link text-info" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to "Atendimento de Chamados", atendimento_chamado_statuses_path, class: "nav-link text-info" %>
+                <%= link_to "Atendimento de Chamados", atendimento_chamado_statuses_path, class: "nav-link " %>
             </li>
         </ul>
     </div>

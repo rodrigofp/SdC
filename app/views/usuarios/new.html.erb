@@ -1,11 +1,6 @@
-<div class="row justify-content-center">
-    <div class="col-8 ">
-        <div class="card border-success">
-            <h1 class="card-header bg-success">Cadastrar Usuário</h1>
 
-            <%= render 'form', usuario: @usuario %>
+<h1 class="card-header bg-grad">Cadastrar Usuário</h1>
 
-            <%= link_to 'Voltar', usuarios_path, class: "btn btn-sm btn-outline-secondary" %>
-        </div>
-    </div>
-</div>
+<%= render 'form', usuario: @usuario %>
+
+<%= link_to 'Voltar', usuarios_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>

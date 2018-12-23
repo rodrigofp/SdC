@@ -1,13 +1,7 @@
-<div class="row justify-content-center">
-    <div class="col-8 ">
-        <div class="card border-warning">
-            <h1 class="card-header bg-warning">Alterar Cliente</h1>
 
-            <%= render 'form', cliente: @cliente %>
+<h1 class="card-header bg-grad">Alterar Cliente</h1>
 
-            <%= link_to 'Detalhes', @cliente, class: "btn btn-sm btn-outline-info" %>
-            <%= link_to 'Voltar', clientes_path, class: "btn btn-sm btn-outline-secondary" %>
+<%= render 'form', cliente: @cliente %>
 
-        </div>
-    </div>
-</div>
+<%= link_to 'Detalhes', @cliente, class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
+<%= link_to 'Voltar', clientes_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>

@@ -9,10 +9,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="background">
     <%= render partial: "shared/menu" %>
     <div class="text-center">
-    <%= yield %>
+      <div class="row justify-content-center">
+        <div class="conteudo border-info">
+          <div class="card-content">
+            <%= yield %>
+          </div>
+          <div class="blur"></div>
+        </div>
+      </div>
     </div>
+    <%= render partial: "shared/footer" %>
   </body>
 </html>

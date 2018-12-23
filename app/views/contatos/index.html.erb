@@ -1,8 +1,8 @@
+
+<h1 class="card-header bg-grad">Contatos</h1>
+
 <p id="notice"><%= notice %></p>
-
-<h1>Contatos</h1>
-
-<table>
+<table class="table table-hover text-left">
   <thead>
     <tr>
       <th>Contato</th>
@@ -16,8 +16,8 @@
     <% @contatos.each do |contato| %>
       <tr>
         <td><%= contato.contato %></td>
-        <td><%= contato.tipo_contato %></td>
-        <td><%= contato.usuario %></td>
+        <td><%= contato.tipo_contato.tipo %></td>
+        <td><%= contato.usuario.nome %></td>
         <td><%= link_to 'Show', contato %></td>
         <td><%= link_to 'Edit', edit_contato_path(contato) %></td>
         <td><%= link_to 'Destroy', contato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
