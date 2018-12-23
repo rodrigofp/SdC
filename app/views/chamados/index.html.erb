@@ -1,8 +1,8 @@
+
+<h1 class="card-header bg-grad">Chamados</h1>
+
 <p id="notice"><%= notice %></p>
-
-<h1>Chamados</h1>
-
-<table>
+<table class="table table-hover text-left">
   <thead>
     <tr>
       <th>Usuario</th>
@@ -18,15 +18,15 @@
   <tbody>
     <% @chamados.each do |chamado| %>
       <tr>
-        <td><%= chamado.usuario %></td>
+        <td><%= chamado.usuario.nome %></td>
         <td><%= chamado.data_abertura %></td>
         <td><%= chamado.data_fechamento %></td>
-        <td><%= chamado.modulo %></td>
-        <td><%= chamado.tipo_chamado %></td>
-        <td><%= chamado.prioridade %></td>
-        <td><%= link_to 'Show', chamado %></td>
-        <td><%= link_to 'Edit', edit_chamado_path(chamado) %></td>
-        <td><%= link_to 'Destroy', chamado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= chamado.modulo.nome %></td>
+        <td><%= chamado.tipo_chamado.tipo %></td>
+        <td><%= chamado.prioridade.nome %></td>
+        <td><%= link_to 'Detalhes', chamado, class: "btn btn-sm btn-grad bg-grad" %></td>
+        <td><%= link_to 'Alterar', edit_chamado_path(chamado), class: "btn btn-sm btn-grad bg-grad" %></td>
+        <td><%= link_to 'Excluir', chamado, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Chamado', new_chamado_path %>
+<%= link_to 'Novo Chamado', new_chamado_path, class: "btn btn-bottom btn-grad bg-grad" %>

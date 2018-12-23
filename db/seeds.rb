@@ -11,3 +11,5 @@ TipoChamado.create([{tipo: "Erro"}, {tipo: "Inconsistência"}, {tipo: "Melhoria"
 TipoContato.create([{tipo: "Telefone"}, {tipo: "Celular"}, {tipo: "E-mail"}])
 Cliente.create([{nome: "ATSD"}, {nome: "ADCCTA"}, {nome: "APVE"}, {nome: "ASSEM"}, {nome: "SEGVAP"}, {nome: "CPI"}])
 TipoUsuario.create([{tipo: "Diretor"}, {tipo: "Desenvolvedor"}, {tipo: "Qualidade"}, {tipo: "Atendimento"}, {tipo: "Cliente"}])
+Base.create([{nome: "Desenvolvimento"}, {nome: "Teste"}, {nome: "Produção"}])
+Modulo.create([{nome: "RH"}, {nome: "Financeiro"}, {nome: "Benefícios"}, {nome: "Marketing"}, {nome: "Esportes"}])

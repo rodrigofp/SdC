@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cliente Modulos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Modulo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cliente_modulos.each do |cliente_modulo| %>
+      <tr>
+        <td><%= cliente_modulo.cliente %></td>
+        <td><%= cliente_modulo.modulo %></td>
+        <td><%= link_to 'Show', cliente_modulo %></td>
+        <td><%= link_to 'Edit', edit_cliente_modulo_path(cliente_modulo) %></td>
+        <td><%= link_to 'Destroy', cliente_modulo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cliente Modulo', new_cliente_modulo_path %>

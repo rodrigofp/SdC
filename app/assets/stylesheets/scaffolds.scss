@@ -1,3 +1,5 @@
+@import "bootstrap";
+
 body {
   background-color: #fff;
   color: #333;
@@ -18,6 +20,7 @@ pre {
   padding: 10px;
   font-size: 11px;
 }
+
 
 th {
   padding-bottom: 5px;
@@ -69,5 +72,3 @@ div {
 label {
   display: block;
 }
-
-.card-header{margin-bottom: 30px;}
