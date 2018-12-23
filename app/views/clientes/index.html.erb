@@ -1,8 +1,8 @@
+
+<h1 class="card-header bg-grad">Clientes</h1>
+
 <p id="notice"><%= notice %></p>
-
-<h1>Clientes</h1>
-
-<table>
+<table class="table table-hover text-left">
   <thead>
     <tr>
       <th>Nome</th>
@@ -14,14 +14,13 @@
     <% @clientes.each do |cliente| %>
       <tr>
         <td><%= cliente.nome %></td>
-        <td><%= link_to 'Show', cliente %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalhes', cliente, class: "btn btn-sm btn-grad bg-grad" %></td>
+        <td><%= link_to 'Alterar', edit_cliente_path(cliente), class: "btn btn-sm btn-grad bg-grad" %></td>
+        <td><%= link_to 'Excluir', cliente, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Cliente', new_cliente_path %>
+<%= link_to 'Novo Cliente', new_cliente_path, class: "btn btn-bottom btn-grad bg-grad" %>

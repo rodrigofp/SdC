@@ -15,10 +15,12 @@ class ChamadosController < ApplicationController
   # GET /chamados/new
   def new
     @chamado = Chamado.new
+    get_options
   end
 
   # GET /chamados/1/edit
   def edit
+    get_options
   end
 
   # POST /chamados
@@ -67,6 +69,12 @@ class ChamadosController < ApplicationController
       @chamado = Chamado.find(params[:id])
     end
 
+    def get_options
+      @usuarios_all = Usuario.all
+      @modulos_all = Modulo.all
+      @tipo_chamados_all = TipoChamado.all
+      @prioridades_all = Prioridade.all
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def chamado_params
       params.require(:chamado).permit(:usuario_id, :data_abertura, :data_fechamento, :modulo_id, :tipo_chamado_id, :prioridade_id)

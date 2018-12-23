@@ -1,8 +1,10 @@
+<h1 class="card-header bg-grad">Detalhes do Chamado</h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Usuario:</strong>
-  <%= @chamado.usuario %>
+  <%= @chamado.usuario.nome %>
 </p>
 
 <p>
@@ -17,18 +19,18 @@
 
 <p>
   <strong>Modulo:</strong>
-  <%= @chamado.modulo %>
+  <%= @chamado.modulo.nome %>
 </p>
 
 <p>
   <strong>Tipo chamado:</strong>
-  <%= @chamado.tipo_chamado %>
+  <%= @chamado.tipo_chamado.tipo %>
 </p>
 
 <p>
   <strong>Prioridade:</strong>
-  <%= @chamado.prioridade %>
+  <%= @chamado.prioridade.nome %>
 </p>
 
-<%= link_to 'Edit', edit_chamado_path(@chamado) %> |
-<%= link_to 'Back', chamados_path %>
+<%= link_to 'Alterar', edit_chamado_path(@chamado), class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
+<%= link_to 'Voltar', chamados_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>

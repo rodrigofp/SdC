@@ -1,3 +1,5 @@
+<h1 class="card-header bg-grad">Detalhes do Módulo</h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,5 +7,16 @@
   <%= @modulo.nome %>
 </p>
 
-<%= link_to 'Edit', edit_modulo_path(@modulo) %> |
-<%= link_to 'Back', modulos_path %>
+<p>
+  <strong>Criado em:</strong>
+  <%= @modulo.created_at %>
+</p>
+
+<p>
+  <strong>Alterado em:</strong>
+  <%= @modulo.updated_at %>
+</p>
+
+
+<%= link_to 'Alterar', edit_modulo_path(@modulo), class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
+<%= link_to 'Voltar', modulos_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>

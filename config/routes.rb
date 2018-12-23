@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  resources :cliente_modulos
+  resources :bases
   get 'home/index'
   root 'home#index'
-  resources :atendimento_chamado_statuses
-  resources :anexo_chamados
   resources :chamados
   resources :modulos
   resources :tipo_chamados

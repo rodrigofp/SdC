@@ -1,9 +1,19 @@
+
+<h1 class="card-header bg-grad">Detalhes Cliente</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Nome:</strong>
   <%= @cliente.nome %>
 </p>
+<p>
+  <strong>Criado em:</strong>
+  <%= @cliente.created_at %>
+</p>
+<p>
+  <strong>Alterado em:</strong>
+  <%= @cliente.updated_at %>
+</p>
+<%= link_to 'Alterar', edit_cliente_path(@cliente), class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
+<%= link_to 'Voltar', clientes_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
 
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>

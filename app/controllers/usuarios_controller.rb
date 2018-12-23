@@ -10,6 +10,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
+    get_contatos
   end
 
   # GET /usuarios/new
@@ -20,6 +21,8 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
+    @contatos = Contato.where(:usuario_id => @usuario.id).all 
+    puts @contatos.inspect
     get_options
   end
 
@@ -30,7 +33,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
+        format.html { redirect_to @usuario, notice: 'Usuario cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new }
@@ -44,7 +47,7 @@ class UsuariosController < ApplicationController
   def update
     respond_to do |format|
       if @usuario.update(usuario_params)
-        format.html { redirect_to @usuario, notice: 'Usuario was successfully updated.' }
+        format.html { redirect_to @usuario, notice: 'Usuario salvo com sucesso.' }
         format.json { render :show, status: :ok, location: @usuario }
       else
         format.html { render :edit }
@@ -58,7 +61,7 @@ class UsuariosController < ApplicationController
   def destroy
     @usuario.destroy
     respond_to do |format|
-      format.html { redirect_to usuarios_url, notice: 'Usuario was successfully destroyed.' }
+      format.html { redirect_to usuarios_url, notice: 'Usuario excluído com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -69,10 +72,14 @@ class UsuariosController < ApplicationController
       @usuario = Usuario.find(params[:id])
     end
 
-    #Holy Xerecas are theses the mf selects?!
+    #Holy Xerecas are thoses the mothafockin options?!
     def get_options
       @clientes_all = Cliente.all
       @tipo_usuarios_all = TipoUsuario.all
+    end
+    
+    def get_contatos
+      @contatos = Contato.where(:usuario_id => @usuario.id).all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

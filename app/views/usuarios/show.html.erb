@@ -1,29 +1,50 @@
+
+<h1 class="card-header bg-grad">Detalhes Cliente</h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nome:</strong>
-  <%= @usuario.nome %>
+<strong>Nome:</strong>
+<%= @usuario.nome %>
 </p>
 
 <p>
-  <strong>Senha:</strong>
-  <%= @usuario.senha %>
+<strong>Senha:</strong>
+<%= @usuario.senha %>
 </p>
 
 <p>
-  <strong>Cpf:</strong>
-  <%= @usuario.cpf %>
+<strong>Cpf:</strong>
+<%= @usuario.cpf %>
 </p>
 
 <p>
-  <strong>Tipo usuario:</strong>
-  <%= @usuario.tipo_usuario_id %>
+<strong>Tipo usuario:</strong>
+<%= @usuario.tipo_usuario.tipo %>
 </p>
 
 <p>
-  <strong>Cliente:</strong>
-  <%= @usuario.cliente_id %>
+<strong>Cliente:</strong>
+<%= @usuario.cliente.nome %>
 </p>
 
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+<% @contatos.each do |contato| %>
+
+<p>
+<strong><%= contato.tipo_contato.tipo %>:</strong>
+<%= contato.contato %>
+</p>
+
+<% end %>
+
+<p>
+<strong>Criado em:</strong>
+<%= @usuario.created_at %>
+</p>
+<p>
+<strong>Alterado em:</strong>
+<%= @usuario.updated_at %>
+</p>
+<%= link_to 'Alterar', edit_usuario_path(@usuario), class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
+<%= link_to 'Voltar', usuarios_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
+
