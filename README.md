@@ -1,4 +1,5 @@
-Lista de pendências(a lista também está em andamento ¯\_(ツ)_/¯ )
+Lista de pendências(a lista também está em andamento  ¯\_(ツ)_/¯ )
+
 1. Layout em todas as páginas.
 2. Incluir métodos de pesquisas com filtros pertinentes nas views Index.
 3. Incluir página de login.
@@ -8,7 +9,11 @@ Lista de pendências(a lista também está em andamento ¯\_(ツ)_/¯ )
 7. Incluir rotina de envio de e-mail para abertura de chamados.
 8. Incluir rotina de envio de e-mail para tipos de usuários responsáveis pela próxima etapa do chamado.
 9. Incluir anexos nos e-mails enviados.
+
+
 ...
+
+
 #C'est la vie
 #Carpie Diem
 #Hakuna Matata
