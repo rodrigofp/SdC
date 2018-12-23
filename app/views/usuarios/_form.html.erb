@@ -28,12 +28,12 @@
 
   <div class="field row form-group justify-content-center">
     <%= form.label :tipo_usuario_id, class: "col-2 col-form-label" %>
-    <%= collection_select :usuario, :tipo_usuario_id, @tipo_usuarios_all, :id, :tipo, {}, class: "form-control col-4" %>
+    <%= form.collection_select :tipo_usuario_id, @tipo_usuarios_all, :id, :tipo, {}, class: "form-control col-4" %>
   </div>
 
   <div class="field row form-group justify-content-center">
     <%= form.label :cliente_id, class: "col-2 col-form-label" %>
-    <%= collection_select :usuario, :cliente_id, @clientes_all, :id, :nome, {}, class: "form-control col-4" %>
+    <%= form.collection_select :cliente_id, @clientes_all, :id, :nome, {}, class: "form-control col-4" %>
   </div>
 
   <div class="actions d-flex justify-content-center">

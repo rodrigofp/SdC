@@ -13,7 +13,7 @@
 
   <div class="field row form-group justify-content-center">
     <%= form.label :usuario_id, class: "col-2 col-form-label" %>
-    <%= collection_select :chamado, :usuario_id, @usuarios_all, :id, :nome, {}, class: "form-control col-4"  %>
+    <%= form.collection_select :usuario_id, @usuarios_all, :id, :nome, {}, class: "form-control col-4"  %>
   </div>
 
   <div class="field row form-group justify-content-center">
@@ -23,17 +23,17 @@
 
   <div class="field row form-group justify-content-center">
     <%= form.label :modulo_id, class: "col-2 col-form-label" %>
-    <%= collection_select :chamado, :modulo_id, @modulos_all, :id, :nome, {}, class: "form-control col-4" %>
+    <%= form.collection_select :modulo_id, @modulos_all, :id, :nome, {}, class: "form-control col-4" %>
   </div>
 
   <div class="field row form-group justify-content-center">
     <%= form.label :tipo_chamado_id, class: "col-2 col-form-label" %>
-    <%= collection_select :chamado, :tipo_chamado_id, @tipo_chamados_all, :id, :tipo, {}, class: "form-control col-4" %>
+    <%= form.collection_select :tipo_chamado_id, @tipo_chamados_all, :id, :tipo, {}, class: "form-control col-4" %>
   </div>
 
   <div class="field row form-group justify-content-center">
     <%= form.label :prioridade_id, class: "col-2 col-form-label" %>
-    <%= collection_select :chamado, :prioridade_id, @prioridades_all, :id, :nome, {}, class: "form-control col-4" %>
+    <%= form.collection_select :prioridade_id, @prioridades_all, :id, :nome, {}, class: "form-control col-4" %>
   </div>
 
   <div class="actions d-flex justify-content-center">

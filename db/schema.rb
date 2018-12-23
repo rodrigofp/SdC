@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_23_123946) do
+ActiveRecord::Schema.define(version: 2018_12_23_143808) do
+
+  create_table "atendimento_chamados", force: :cascade do |t|
+    t.integer "chamado_id"
+    t.integer "usuario_id"
+    t.integer "status_interno_id"
+    t.integer "status_externo_id"
+    t.integer "base_id"
+    t.datetime "data"
+    t.text "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["base_id"], name: "index_atendimento_chamados_on_base_id"
+    t.index ["chamado_id"], name: "index_atendimento_chamados_on_chamado_id"
+    t.index ["status_externo_id"], name: "index_atendimento_chamados_on_status_externo_id"
+    t.index ["status_interno_id"], name: "index_atendimento_chamados_on_status_interno_id"
+    t.index ["usuario_id"], name: "index_atendimento_chamados_on_usuario_id"
+  end
 
   create_table "bases", force: :cascade do |t|
     t.string "nome"

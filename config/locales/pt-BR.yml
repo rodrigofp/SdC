@@ -1,2 +1,13 @@
 "pt-BR":
-  hello: "Olá Mundo"
+  buttons:
+    show: Detalhes
+    edit: Alterar
+    destroy: Excluir
+    back: Voltar
+  labels:
+    new: Novo
+    create: Cadastrar
+    edit: Alterar
+    details: Detalhes
+  messages:
+    confirm: "Deseja realmente excluir?"

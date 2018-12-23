@@ -15,6 +15,7 @@ class ChamadosController < ApplicationController
   # GET /chamados/new
   def new
     @chamado = Chamado.new
+    
     get_options
   end
 

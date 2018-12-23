@@ -1,4 +1,4 @@
-<h1 class="card-header bg-grad">Detalhes do Chamado</h1>
+<h1 class="card-header bg-grad"><%= t('labels.details') %> do Chamado</h1>
 
 <p id="notice"><%= notice %></p>
 
@@ -32,5 +32,5 @@
   <%= @chamado.prioridade.nome %>
 </p>
 
-<%= link_to 'Alterar', edit_chamado_path(@chamado), class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
-<%= link_to 'Voltar', chamados_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
+<%= render :partial => 'shared/button_edit', locals: { path: edit_chamado_path(@chamado) }%>
+<%= render :partial => 'shared/button_back', locals: { path: chamados_path }%>
