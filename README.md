@@ -1,4 +1,4 @@
-Lista de pendências(a lista também está em andamento  ¯\\_(ツ)_/¯ )
+Lista de pendências(a lista também está em andamento  ¯\\\_(ツ)_/¯ )
 
 1. Incluir métodos de pesquisas com filtros pertinentes nas views Index.
 2. Incluir página de login.
