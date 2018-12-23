@@ -1,3 +1,4 @@
+
 Lista de pendências(a lista também está em andamento  ¯\\\_(ツ)_/¯ )
 
 1. Incluir métodos de pesquisas com filtros pertinentes nas views Index.
@@ -25,6 +26,7 @@ Requisitos(order by importância):
 1. Ao cadastrar o chamado, salvar automaticamente a primeira iteração do mesmo com o status "Aberto"
 2. Na view show, exibir todas as iterações do chamado em um carousel.
 3. Select de módulo dinâmico no cadastro.
+
 
 #C'est la vie
 #Carpie Diem
