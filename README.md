@@ -13,14 +13,6 @@ Lista de pendências(a lista também está em andamento  ¯\\\_(ツ)_/¯ )
 
 ...
 Running Sprint:
-PB -> Criar relação módulo por cliente.
-Requisitos(order by importância):
-1. Criar scaffold ClienteModulo.
-2. Substituir path no menu.
-3. Incluir referência de ClienteModulo no model Chamado.
-
-
-Next Sprint:
 PB -> Cadastro de chamado
 Requisitos(order by importância): 
 1. Ao cadastrar o chamado, salvar automaticamente a primeira iteração do mesmo com o status "Aberto"
