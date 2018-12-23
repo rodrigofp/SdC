@@ -1,8 +1,8 @@
+
+<h1 class="card-header bg-grad">Cliente Modulos</h1>
+
 <p id="notice"><%= notice %></p>
-
-<h1>Cliente Modulos</h1>
-
-<table>
+<table class="table table-hove text-left">
   <thead>
     <tr>
       <th>Cliente</th>
@@ -14,11 +14,11 @@
   <tbody>
     <% @cliente_modulos.each do |cliente_modulo| %>
       <tr>
-        <td><%= cliente_modulo.cliente %></td>
-        <td><%= cliente_modulo.modulo %></td>
-        <td><%= link_to 'Show', cliente_modulo %></td>
-        <td><%= link_to 'Edit', edit_cliente_modulo_path(cliente_modulo) %></td>
-        <td><%= link_to 'Destroy', cliente_modulo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= cliente_modulo.cliente.nome %></td>
+        <td><%= cliente_modulo.modulo.nome %></td>
+        <td><%= link_to 'Detalhes', cliente_modulo, class: "btn btn-sm btn-grad bg-grad" %></td>
+        <td><%= link_to 'Alterar', edit_cliente_modulo_path(cliente_modulo), class: "btn btn-sm btn-grad bg-grad" %></td>
+        <td><%= link_to 'Excluir', cliente_modulo, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Cliente Modulo', new_cliente_modulo_path %>
+<%= link_to 'Novo Cliente Modulo', new_cliente_modulo_path, class: "btn btn-bottom btn-grad bg-grad" %>

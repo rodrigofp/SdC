@@ -1,6 +1,6 @@
-<h1>Editing Cliente Modulo</h1>
-
+<h1 class="card-header bg-grad">Alterar Cliente Modulo</h1>
+<br>
 <%= render 'form', cliente_modulo: @cliente_modulo %>
 
-<%= link_to 'Show', @cliente_modulo %> |
-<%= link_to 'Back', cliente_modulos_path %>
+<%= link_to 'Detalhes', @cliente_modulo, class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
+<%= link_to 'Back', cliente_modulos_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
