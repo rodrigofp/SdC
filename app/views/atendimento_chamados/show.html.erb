@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Chamado:</strong>
+  <%= @atendimento_chamado.chamado %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @atendimento_chamado.usuario %>
+</p>
+
+<p>
+  <strong>Status interno:</strong>
+  <%= @atendimento_chamado.status_interno %>
+</p>
+
+<p>
+  <strong>Status externo:</strong>
+  <%= @atendimento_chamado.status_externo %>
+</p>
+
+<p>
+  <strong>Base:</strong>
+  <%= @atendimento_chamado.base %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @atendimento_chamado.data %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @atendimento_chamado.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_atendimento_chamado_path(@atendimento_chamado) %> |
+<%= link_to 'Back', atendimento_chamados_path %>

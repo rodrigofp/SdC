@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chamado: one
+  usuario: one
+  status_interno: one
+  status_externo: one
+  base: one
+  data: 2018-12-23 12:38:08
+  descricao: MyText
+
+two:
+  chamado: two
+  usuario: two
+  status_interno: two
+  status_externo: two
+  base: two
+  data: 2018-12-23 12:38:08
+  descricao: MyText

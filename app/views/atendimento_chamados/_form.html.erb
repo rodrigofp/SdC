@@ -1,0 +1,52 @@
+<%= form_with(model: atendimento_chamado, local: true) do |form| %>
+  <% if atendimento_chamado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(atendimento_chamado.errors.count, "error") %> prohibited this atendimento_chamado from being saved:</h2>
+
+      <ul>
+      <% atendimento_chamado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :chamado_id %>
+    <%= form.text_field :chamado_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usuario_id %>
+    <%= form.text_field :usuario_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status_interno_id %>
+    <%= form.text_field :status_interno_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status_externo_id %>
+    <%= form.text_field :status_externo_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :base_id %>
+    <%= form.text_field :base_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.datetime_select :data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descricao %>
+    <%= form.text_area :descricao %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

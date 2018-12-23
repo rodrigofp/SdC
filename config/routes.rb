@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :atendimento_chamados
   resources :cliente_modulos
   resources :bases
   get 'home/index'
