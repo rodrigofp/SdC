@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Lista de pendências(a lista também está em andamento ¯\_(ツ)_/¯ )
 
-Things you may want to cover:
+1. Layout em todas as páginas.
+2. Incluir métodos de pesquisas com filtros pertinentes nas views Index.
+3. Incluir página de login.
+4. Incluir rotina de logout no menu.
+5. Incluir rotina de restringir acesso para os tipos de usuário.
+6. Incluir método para salvar anexos até tamanho máximo.
+7. Incluir rotina de envio de e-mail para abertura de chamados.
+8. Incluir rotina de envio de e-mail para tipos de usuários responsáveis pela próxima etapa do chamado.
+9. Incluir anexos nos e-mails enviados.
+...
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#C'est la vie
+#Carpie Diem
+#Hakuna Matata
