@@ -1,0 +1,27 @@
+<h3>Contatos</h3>
+<p id="notice"><%= notice %></p>
+
+<table class="table table-hover text-left"> 
+<thead>
+<tr>
+<th>Contato</th>
+<th>Tipo contato</th>
+<th colspan="3"></th>
+</tr>
+</thead>
+
+<tbody>
+<% @contatos.each do |contato| %>
+<tr>
+    <td><%= contato.tipo_contato.tipo %></td>
+    <td><%= contato.contato %></td>
+    <%= render :partial => 'shared/button_index', locals: { show_path: contato, edit_path: edit_contato_path(contato, :usuario => @usuario.id) } %>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+<br>
+<div class="actions d-flex justify-content-center">
+<%= link_to 'Novo Contato', new_contato_path(:usuario => @usuario.id), class: "btn btn-grad bg-grad" %>
+</div>

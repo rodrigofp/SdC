@@ -11,3 +11,6 @@
     details: Detalhes
   messages:
     confirm: "Deseja realmente excluir?"
+    created: "cadastrado com sucesso."
+    updated: "atualizado com sucesso."
+    destroyed: "excluído com sucesso."

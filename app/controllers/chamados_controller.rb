@@ -31,7 +31,7 @@ class ChamadosController < ApplicationController
 
     respond_to do |format|
       if @chamado.save
-        format.html { redirect_to @chamado, notice: 'Chamado was successfully created.' }
+        format.html { redirect_to @chamado, notice: "Chamado #{t('messages.created')}" }
         format.json { render :show, status: :created, location: @chamado }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ChamadosController < ApplicationController
   def update
     respond_to do |format|
       if @chamado.update(chamado_params)
-        format.html { redirect_to @chamado, notice: 'Chamado was successfully updated.' }
+        format.html { redirect_to @chamado, notice: "Chamado #{t('messages.updated')}" }
         format.json { render :show, status: :ok, location: @chamado }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class ChamadosController < ApplicationController
   def destroy
     @chamado.destroy
     respond_to do |format|
-      format.html { redirect_to chamados_url, notice: 'Chamado was successfully destroyed.' }
+      format.html { redirect_to chamados_url, notice: "Chamado #{t('messages.destroyed')}" }
       format.json { head :no_content }
     end
   end
@@ -78,6 +78,7 @@ class ChamadosController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def chamado_params
-      params.require(:chamado).permit(:usuario_id, :data_abertura, :data_fechamento, :modulo_id, :tipo_chamado_id, :prioridade_id)
+      params.require(:chamado).permit(:usuario_id, :data_abertura, :data_fechamento, :modulo_id, :tipo_chamado_id, :prioridade_id,
+      atendimento_chamados_attributes[:descricao, :usuario, :status_interno, :status_externo, :base, :data])
     end
 end

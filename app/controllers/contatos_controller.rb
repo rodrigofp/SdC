@@ -15,6 +15,7 @@ class ContatosController < ApplicationController
   # GET /contatos/new
   def new
     @contato = Contato.new
+    @contato.usuario_id = params[:usuario]
     get_options
   end
 
@@ -27,10 +28,9 @@ class ContatosController < ApplicationController
   # POST /contatos.json
   def create
     @contato = Contato.new(contato_params)
-
     respond_to do |format|
       if @contato.save
-        format.html { redirect_to edit_usuario_path(Usuario.find(@contato.usuario_id)), notice: 'Contato cadastrado com sucesso.' }
+        format.html { redirect_to edit_usuario_path(Usuario.find(@contato.usuario_id)), notice: "Contato #{t('messages.created')}" }
         format.json { render :show, status: :created, location: @contato }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ContatosController < ApplicationController
     respond_to do |format|
       if @contato.update(contato_params)
 
-        format.html { redirect_to edit_usuario_path(Usuario.find(@contato.usuario_id)), notice: 'Contato salvo com sucesso.' }
+        format.html { redirect_to edit_usuario_path(Usuario.find(@contato.usuario_id)), notice: "Contato #{t('messages.updated')}" }
         format.json { render :show, status: :ok, location: @contato }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class ContatosController < ApplicationController
   def destroy
     @contato.destroy
     respond_to do |format|
-      format.html { redirect_to edit_usuario_path(Usuario.find(@contato.usuario_id)), notice: 'Contato excluído com sucesso.' }
+      format.html { redirect_to edit_usuario_path(Usuario.find(@contato.usuario_id)), notice: "Contato #{t('messages.destroyed')}" }
       format.json { head :no_content }
     end
   end
@@ -71,8 +71,8 @@ class ContatosController < ApplicationController
     end
 
     def get_options
-      @usuario_all = Usuario.where(:id => params[:usuario]).all
       @tipo_contato_all = TipoContato.all
+      @usuario_id = params[:usuario]
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def contato_params

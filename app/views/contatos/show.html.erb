@@ -1,4 +1,16 @@
+<h1 class="card-header bg-grad"><%= t('labels.details')%> do Contato</h1>
+
 <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @contato.usuario.nome %>
+</p>
+
+<p>
+  <strong>Tipo contato:</strong>
+  <%= @contato.tipo_contato.tipo %>
+</p>
 
 <p>
   <strong>Contato:</strong>
@@ -6,14 +18,15 @@
 </p>
 
 <p>
-  <strong>Tipo contato:</strong>
-  <%= @contato.tipo_contato %>
+<strong>Criado em:</strong>
+<%= l @contato.created_at %>
 </p>
 
 <p>
-  <strong>Usuario:</strong>
-  <%= @contato.usuario %>
+<strong>Atualizado em:</strong>
+<%= l @contato.updated_at %>
 </p>
 
-<%= link_to 'Edit', edit_contato_path(@contato) %> |
-<%= link_to 'Back', contatos_path %>
+
+<%= render :partial => 'shared/button_edit', locals: { path: edit_contato_path(@contato, :usuario => @contato.usuario.id) }%>
+<%= render :partial => 'shared/button_back', locals: { path: edit_usuario_path(@contato.usuario) } %>

@@ -21,9 +21,8 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
-    @contatos = Contato.where(:usuario_id => @usuario.id).all 
-    puts @contatos.inspect
     get_options
+    get_contatos
   end
 
   # POST /usuarios
@@ -33,7 +32,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario, notice: 'Usuario cadastrado com sucesso.' }
+        format.html { redirect_to @usuario, notice: "Usuário #{t('messages.created')}" }
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new }
@@ -47,7 +46,7 @@ class UsuariosController < ApplicationController
   def update
     respond_to do |format|
       if @usuario.update(usuario_params)
-        format.html { redirect_to @usuario, notice: 'Usuario salvo com sucesso.' }
+        format.html { redirect_to @usuario, notice: "Usuário #{t('messages.updated')}" }
         format.json { render :show, status: :ok, location: @usuario }
       else
         format.html { render :edit }
@@ -61,7 +60,7 @@ class UsuariosController < ApplicationController
   def destroy
     @usuario.destroy
     respond_to do |format|
-      format.html { redirect_to usuarios_url, notice: 'Usuario excluído com sucesso.' }
+      format.html { redirect_to usuarios_url, notice: "Usuário #{t('messages.destroyed')}" }
       format.json { head :no_content }
     end
   end
@@ -79,7 +78,7 @@ class UsuariosController < ApplicationController
     end
     
     def get_contatos
-      @contatos = Contato.where(:usuario_id => @usuario.id).all
+      @contatos = @usuario.contatos
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

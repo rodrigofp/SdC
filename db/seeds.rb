@@ -88,3 +88,24 @@ StatusInterno.create([
     {nome: "Finalizado"},
 ])
 puts "Criando status internos...[OK]"
+
+puts "Criando usuarios..."
+10.times do |i|
+    Usuario.create({
+        nome: Faker::Name.name,
+        senha: Faker::Lorem.word,
+        cpf: Faker::IDNumber.valid,
+        tipo_usuario: TipoUsuario.all.sample,
+        cliente: Cliente.all.sample
+    })
+end
+puts "Criando usuarios...[OK]"
+
+puts "Criando modulos..."
+10.times do |i|
+    ClienteModulo.create({
+        cliente: Cliente.all.sample,
+        modulo: Modulo.all.sample
+    })
+end
+puts "Criando modulos...[OK]"

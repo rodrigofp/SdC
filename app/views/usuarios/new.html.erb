@@ -1,6 +1,6 @@
 
-<h1 class="card-header bg-grad">Cadastrar Usuário</h1>
+<h1 class="card-header bg-grad"><%= t('labels.create')%> Usuário</h1>
 <br>
 <%= render 'form', usuario: @usuario %>
 
-<%= link_to 'Voltar', usuarios_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
+<%= render :partial => 'shared/button_back', locals: { path: usuarios_path }%>

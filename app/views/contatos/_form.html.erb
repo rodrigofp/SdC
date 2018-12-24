@@ -10,20 +10,21 @@
       </ul>
     </div>
   <% end %>
-  <div class="field row form-group justify-content-center">
-    <%= form.label :usuario_id, class: "col-2 col-form-label" %>
-    <%= form.collection_select :usuario_id, @usuario_all, :id, :nome, {}, { class: "form-control col-4", :readonly => true } %>
-  </div>
-
-  <div class="field row form-group justify-content-center">
-    <%= form.label :contato, class: "col-2 col-form-label" %>
-    <%= form.text_field :contato, class: "form-control col-4" %>
+  <div class="hidden">
+    <%= form.label :usuario_id %>
+    <%= form.text_field :usuario_id, :value => @usuario_id %>
   </div>
 
   <div class="field row form-group justify-content-center">
     <%= form.label :tipo_contato_id, class: "col-2 col-form-label" %>
     <%= form.collection_select :tipo_contato_id, @tipo_contato_all, :id, :tipo, {}, { class: "form-control col-4" } %>
   </div>
+  
+  <div class="field row form-group justify-content-center">
+    <%= form.label :contato, class: "col-2 col-form-label" %>
+    <%= form.text_field :contato, class: "form-control col-4" %>
+  </div>
+
 
   <div class="actions d-flex justify-content-center">
     <%= form.submit "Salvar", class: "btn btn-grad bg-grad"%>

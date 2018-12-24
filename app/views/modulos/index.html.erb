@@ -14,9 +14,7 @@
     <% @modulos.each do |modulo| %>
       <tr>
         <td><%= modulo.nome %></td>
-        <td><%= link_to 'Detalhes', modulo, class: "btn btn-sm btn-grad bg-grad" %></td>
-        <td><%= link_to 'Alterar', edit_modulo_path(modulo), class: "btn btn-sm btn-grad bg-grad" %></td>
-        <td><%= link_to 'Excluir', modulo, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= render :partial => 'shared/button_index', locals: { show_path: modulo, edit_path: edit_modulo_path(modulo) }%>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +22,4 @@
 
 <br>
 
-<%= link_to 'Novo Módulo', new_modulo_path, class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
+<%= render :partial => 'shared/button_new', locals: { path: new_modulo_path, text: ' Módulo' }%>

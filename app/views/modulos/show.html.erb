@@ -18,5 +18,5 @@
 </p>
 
 
-<%= link_to 'Alterar', edit_modulo_path(@modulo), class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
-<%= link_to 'Voltar', modulos_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
+<%= render :partial => 'shared/button_edit', locals: { path: edit_modulo_path(@modulo) }%>
+<%= render :partial => 'shared/button_back', locals: { path: modulos_path }%>
