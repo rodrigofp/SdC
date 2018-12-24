@@ -21,7 +21,7 @@
         <td><%= chamado.usuario.nome %></td>
         <td><%= chamado.data_abertura %></td>
         <td><%= chamado.data_fechamento %></td>
-        <td><%= chamado.modulo.nome %></td>
+        <td><%= chamado.cliente_modulo.options_select %></td>
         <td><%= chamado.tipo_chamado.tipo %></td>
         <td><%= chamado.prioridade.nome %></td>
         <%= render :partial => 'shared/button_index', locals: { show_path: chamado, edit_path: edit_chamado_path(chamado) }%>

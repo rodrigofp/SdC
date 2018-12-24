@@ -11,19 +11,24 @@
     </div>
   <% end %>
 
+  <div class="hidden">
+    <%= form.label :data_abertura, class: "col-2 col-form-label" %>
+    <%= form.datetime_select :data_abertura, class: "form-control col-4" %>
+  </div>
+
   <div class="field row form-group justify-content-center">
     <%= form.label :usuario_id, class: "col-2 col-form-label" %>
     <%= form.collection_select :usuario_id, @usuarios_all, :id, :nome, {}, class: "form-control col-4"  %>
   </div>
 
   <div class="field row form-group justify-content-center">
-    <%= form.label :data_abertura, class: "col-2 col-form-label" %>
-    <%= form.datetime_select :data_abertura, class: "form-control col-4" %>
+    <%= form.label :base_id, class: "col-2 col-form-label" %>
+    <%= form.collection_select :base_id, @bases_all, :id, :nome, {}, class: "form-control col-4" %>
   </div>
 
   <div class="field row form-group justify-content-center">
-    <%= form.label :modulo_id, class: "col-2 col-form-label" %>
-    <%= form.collection_select :modulo_id, @modulos_all, :id, :nome, {}, class: "form-control col-4" %>
+    <%= form.label :cliente_modulo_id, class: "col-2 col-form-label" %>
+    <%= form.collection_select :cliente_modulo_id, @cliente_modulos_all, :id, :options_select, {}, class: "form-control col-4" %>
   </div>
 
   <div class="field row form-group justify-content-center">
@@ -35,6 +40,13 @@
     <%= form.label :prioridade_id, class: "col-2 col-form-label" %>
     <%= form.collection_select :prioridade_id, @prioridades_all, :id, :nome, {}, class: "form-control col-4" %>
   </div>
+  
+  <% unless @chamado.persisted? %>
+    <div class="field row form-group justify-content-center">
+      <%= form.label :descricao, class: "col-2 col-form-label" %>
+      <%= form.text_area :descricao, rows: "5", class: "form-control col-4" %>
+    </div>
+  <% end %>
 
   <div class="actions d-flex justify-content-center">
     <%= form.submit "Salvar", class: "btn btn-grad bg-grad" %>

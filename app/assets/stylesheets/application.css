@@ -50,6 +50,12 @@ body{
 
 /* BLUR E FIRULAS */
 
+#notice{
+    color: greenyellow;
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
 .hidden{
     display: none;
 }

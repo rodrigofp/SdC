@@ -15,7 +15,6 @@ class ChamadosController < ApplicationController
   # GET /chamados/new
   def new
     @chamado = Chamado.new
-    
     get_options
   end
 
@@ -28,7 +27,6 @@ class ChamadosController < ApplicationController
   # POST /chamados.json
   def create
     @chamado = Chamado.new(chamado_params)
-
     respond_to do |format|
       if @chamado.save
         format.html { redirect_to @chamado, notice: "Chamado #{t('messages.created')}" }
@@ -72,13 +70,14 @@ class ChamadosController < ApplicationController
 
     def get_options
       @usuarios_all = Usuario.all
-      @modulos_all = Modulo.all
+      @bases_all = Base.all
+      @cliente_modulos_all = ClienteModulo.all
       @tipo_chamados_all = TipoChamado.all
       @prioridades_all = Prioridade.all
     end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def chamado_params
-      params.require(:chamado).permit(:usuario_id, :data_abertura, :data_fechamento, :modulo_id, :tipo_chamado_id, :prioridade_id,
-      atendimento_chamados_attributes[:descricao, :usuario, :status_interno, :status_externo, :base, :data])
+      params.require(:chamado).permit(:usuario_id, :data_abertura, :data_fechamento, :cliente_modulo_id, :base_id, :tipo_chamado_id, :prioridade_id, :descricao)
     end
 end
