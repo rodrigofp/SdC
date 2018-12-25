@@ -5,7 +5,7 @@ class Chamado < ApplicationRecord
   belongs_to :prioridade
   belongs_to :base
 
-  has_many :atendimento_chamados
+  has_many :atendimento_chamados, dependent: :delete_all
 
   attr_accessor :descricao
 
@@ -18,11 +18,11 @@ def save
     cliente_modulo_id: cliente_modulo_id, 
     tipo_chamado_id: tipo_chamado_id, 
     base_id: base_id,
-    prioridade_id: prioridade_id)
+    prioridade_id: prioridade_id,
+    numerador: numerador)
 
     chamado.atendimento_chamados.create!(usuario_id: usuario_id, 
-    status_interno_id: 1, 
-    status_externo_id: 1, 
+    status_id: 1,
     base_id: base_id, 
     data: data_abertura, 
     descricao: descricao)

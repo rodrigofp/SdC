@@ -5,12 +5,13 @@
 <table class="table table-hover text-left">
   <thead>
     <tr>
+      <th>Número</th>
+      <th>Cliente-Modulo</th>
       <th>Usuario</th>
+      <th>Prioridade</th>
+      <th>Tipo chamado</th>
       <th>Data abertura</th>
       <th>Data fechamento</th>
-      <th>Modulo</th>
-      <th>Tipo chamado</th>
-      <th>Prioridade</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,18 +19,21 @@
   <tbody>
     <% @chamados.each do |chamado| %>
       <tr>
+        <td><%= chamado.numerador %></td>
+        <td><%= chamado.cliente_modulo.options_select %></td>
         <td><%= chamado.usuario.nome %></td>
+        <td><%= chamado.prioridade.nome %></td>
+        <td><%= chamado.tipo_chamado.tipo %></td>
         <td><%= chamado.data_abertura %></td>
         <td><%= chamado.data_fechamento %></td>
-        <td><%= chamado.cliente_modulo.options_select %></td>
-        <td><%= chamado.tipo_chamado.tipo %></td>
-        <td><%= chamado.prioridade.nome %></td>
         <%= render :partial => 'shared/button_index', locals: { show_path: chamado, edit_path: edit_chamado_path(chamado) }%>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<div class="apple_pagination d-flex justify-content-center">
+  <%= will_paginate @chamados %>
+</div>
 
 <%= render :partial => 'shared/button_new', locals: { path: new_chamado_path, text: ' Chamado' }%>

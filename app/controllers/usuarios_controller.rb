@@ -4,7 +4,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios
   # GET /usuarios.json
   def index
-    @usuarios = Usuario.all
+    @usuarios = Usuario.paginate(:page => params[:page])
   end
 
   # GET /usuarios/1
@@ -78,7 +78,7 @@ class UsuariosController < ApplicationController
     end
     
     def get_contatos
-      @contatos = @usuario.contatos
+      @contatos = @usuario.contatos.paginate(:page => params[:page], :per_page => 5)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

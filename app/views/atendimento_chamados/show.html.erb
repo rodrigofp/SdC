@@ -1,39 +1,42 @@
+<h1 class="card-header bg-grad"><%= t('labels.details') %> do Status</h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Chamado:</strong>
-  <%= @atendimento_chamado.chamado %>
+  <%= @atendimento_chamado.chamado.numerador %>
 </p>
 
 <p>
   <strong>Usuario:</strong>
-  <%= @atendimento_chamado.usuario %>
+  <%= @atendimento_chamado.usuario.nome %>
 </p>
 
 <p>
-  <strong>Status interno:</strong>
-  <%= @atendimento_chamado.status_interno %>
-</p>
-
-<p>
-  <strong>Status externo:</strong>
-  <%= @atendimento_chamado.status_externo %>
+  <strong>Status:</strong>
+  <%= @atendimento_chamado.status.nome %>
 </p>
 
 <p>
   <strong>Base:</strong>
-  <%= @atendimento_chamado.base %>
+  <%= @atendimento_chamado.base.nome %>
 </p>
 
-<p>
-  <strong>Data:</strong>
-  <%= @atendimento_chamado.data %>
-</p>
 
 <p>
   <strong>Descricao:</strong>
   <%= @atendimento_chamado.descricao %>
 </p>
 
-<%= link_to 'Edit', edit_atendimento_chamado_path(@atendimento_chamado) %> |
-<%= link_to 'Back', atendimento_chamados_path %>
+<p>
+  <strong>Criado em:</strong>
+  <%= l @atendimento_chamado.data %>
+</p>
+
+<p>
+<strong>Atualizado em:</strong>
+<%= l @atendimento_chamado.updated_at %>
+</p>
+
+<%= render :partial => 'shared/button_edit', locals: { path: edit_atendimento_chamado_path(@atendimento_chamado, :chamado => @atendimento_chamado.chamado.id) }%>
+<%= render :partial => 'shared/button_back', locals: { path: edit_chamado_path(@atendimento_chamado.chamado) } %>

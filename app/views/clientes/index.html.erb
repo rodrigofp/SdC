@@ -19,6 +19,7 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
+<div class="apple_pagination d-flex justify-content-center">
+<%= will_paginate @cliente_modulos %>
+</div>
 <%= render :partial => 'shared/button_new', locals: { path: new_cliente_path, text: ' Cliente' }%>

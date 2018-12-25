@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div class="field row form-group justify-content-center">
+    <%= form.label :numerador, class: "col-2 col-form-label" %>
+    <%= form.text_field :numerador, :value => @numerador, class: "form-control col-4", :readonly => true %>
+  </div>
+
   <div class="hidden">
     <%= form.label :data_abertura, class: "col-2 col-form-label" %>
     <%= form.datetime_select :data_abertura, class: "form-control col-4" %>

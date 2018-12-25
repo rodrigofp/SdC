@@ -63,31 +63,20 @@ Modulo.create([
     {nome: "Esportes"}])
 puts "Criando modulos...[OK]"
 
-puts "Criando status externos..."
-StatusExterno.create([
-    {nome: "Aberto"}, 
-    {nome: "Em desenvolvimento"}, 
-    {nome: "Aguardando teste"}, 
-    {nome: "Retornou"}, 
-    {nome: "Aprovado"}, 
-    {nome: "Atualizado"}, 
-    {nome: "Finalizado"}])
-puts "Criando status externos...[OK]"
-
-puts "Criando status internos..."
-StatusInterno.create([
+puts "Criando status..."
+Status.create([
     {nome: "Aberto"},
     {nome: "Em desenvolvimento"},
-    {nome: "Aguardando teste interno"},
+    {nome: "Aguardando teste"},
+    {nome: "Em teste"},
     {nome: "Retornou"},
-    {nome: "Aprovado"},
-    {nome: "Aguardando teste do cliente"},
-    {nome: "Aguardando autorização"},
     {nome: "Aguardando atualização"},
+    {nome: "Aguardando validação"},
+    {nome: "Aguardando autorização"},
     {nome: "Atualizado"},
     {nome: "Finalizado"},
 ])
-puts "Criando status internos...[OK]"
+puts "Criando status...[OK]"
 
 puts "Criando usuarios..."
 10.times do |i|
@@ -102,10 +91,12 @@ end
 puts "Criando usuarios...[OK]"
 
 puts "Criando modulos..."
-10.times do |i|
-    ClienteModulo.create({
-        cliente: Cliente.all.sample,
-        modulo: Modulo.all.sample
-    })
+Cliente.all.each do |cliente|
+    Modulo.all.each do |modulo|
+        ClienteModulo.create({
+            cliente: cliente,
+            modulo: modulo
+        })
+    end
 end
 puts "Criando modulos...[OK]"

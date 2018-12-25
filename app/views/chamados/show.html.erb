@@ -2,35 +2,6 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Usuario:</strong>
-  <%= @chamado.usuario.nome %>
-</p>
-
-<p>
-  <strong>Data abertura:</strong>
-  <%= @chamado.data_abertura %>
-</p>
-
-<p>
-  <strong>Data fechamento:</strong>
-  <%= @chamado.data_fechamento %>
-</p>
-
-<p>
-  <strong>Modulo:</strong>
-  <%= @chamado.cliente_modulo.options_select %>
-</p>
-
-<p>
-  <strong>Tipo chamado:</strong>
-  <%= @chamado.tipo_chamado.tipo %>
-</p>
-
-<p>
-  <strong>Prioridade:</strong>
-  <%= @chamado.prioridade.nome %>
-</p>
-
+<%= render :partial => 'carousel_atendimentos'%>
 <%= render :partial => 'shared/button_edit', locals: { path: edit_chamado_path(@chamado) }%>
 <%= render :partial => 'shared/button_back', locals: { path: chamados_path }%>

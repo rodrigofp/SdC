@@ -1,10 +1,10 @@
-<%= form_with(model: status_interno, local: true) do |form| %>
-  <% if status_interno.errors.any? %>
+<%= form_with(model: status, local: true) do |form| %>
+  <% if status.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(status_interno.errors.count, "error") %> prohibited this status_interno from being saved:</h2>
+      <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
 
       <ul>
-      <% status_interno.errors.full_messages.each do |message| %>
+      <% status.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

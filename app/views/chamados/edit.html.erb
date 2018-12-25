@@ -2,6 +2,8 @@
 <br>
 <%= render 'form', chamado: @chamado %>
 
+<%= render 'index_atendimentos' %>
+
 <%= render :partial => 'shared/button_show', locals: { path: @chamado } %>
 <%= render :partial => 'shared/button_back', locals: { path: chamados_path } %>
 

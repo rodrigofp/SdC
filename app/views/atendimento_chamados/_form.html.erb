@@ -11,42 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="hidden">
     <%= form.label :chamado_id %>
-    <%= form.text_field :chamado_id %>
+    <%= form.text_field :chamado_id, :value => @chamado_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :usuario_id %>
-    <%= form.text_field :usuario_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status_interno_id %>
-    <%= form.text_field :status_interno_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status_externo_id %>
-    <%= form.text_field :status_externo_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :base_id %>
-    <%= form.text_field :base_id %>
-  </div>
-
-  <div class="field">
+  <div class="hidden">
     <%= form.label :data %>
     <%= form.datetime_select :data %>
   </div>
 
-  <div class="field">
-    <%= form.label :descricao %>
-    <%= form.text_area :descricao %>
+  <div class="field row form-group justify-content-center">
+    <%= form.label :status_id, class: "col-2 col-form-label" %>
+    <%= form.collection_select :status_id, @statuses_all, :id, :nome, {}, { class: "form-control col-4" } %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field row form-group justify-content-center">
+    <%= form.label :usuario_id, class: "col-2 col-form-label" %>
+    <%= form.collection_select :usuario_id, @usuarios_all, :id, :nome, {}, { class: "form-control col-4" } %>
+  </div>
+
+  <div class="field row form-group justify-content-center">
+    <%= form.label :base_id, class: "col-2 col-form-label" %>
+    <%= form.collection_select :base_id, @bases_all, :id, :nome, {}, { class: "form-control col-4" } %>
+  </div>
+
+  <div class="field row form-group justify-content-center">
+    <%= form.label :descricao, class: "col-2 col-form-label" %>
+    <%= form.text_area :descricao, class: "form-control col-4" %>
+  </div>
+
+  <div class="actions d-flex justify-content-center">
+    <%= form.submit t("buttons.save"), class: "btn btn-grad bg-grad" %>
   </div>
 <% end %>

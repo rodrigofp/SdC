@@ -4,6 +4,7 @@
     edit: Alterar
     destroy: Excluir
     back: Voltar
+    save: Salvar
   labels:
     new: Novo
     create: Cadastrar
@@ -14,3 +15,6 @@
     created: "cadastrado com sucesso."
     updated: "atualizado com sucesso."
     destroyed: "excluído com sucesso."
+  will_paginate:
+    previous_label: "Anterior"
+    next_label: "Próxima"

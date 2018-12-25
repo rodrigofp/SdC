@@ -4,23 +4,27 @@ class ChamadosController < ApplicationController
   # GET /chamados
   # GET /chamados.json
   def index
-    @chamados = Chamado.all
+    @chamados = Chamado.paginate(:page => params[:page])
   end
 
   # GET /chamados/1
   # GET /chamados/1.json
   def show
+    get_atendimentos
   end
 
   # GET /chamados/new
   def new
     @chamado = Chamado.new
     get_options
+    get_last_numerador
   end
 
   # GET /chamados/1/edit
   def edit
     get_options
+    @numerador = @chamado.numerador
+    get_atendimentos
   end
 
   # POST /chamados
@@ -75,9 +79,21 @@ class ChamadosController < ApplicationController
       @tipo_chamados_all = TipoChamado.all
       @prioridades_all = Prioridade.all
     end
+    
+    def get_atendimentos
+      @atendimentos = @chamado.atendimento_chamados.paginate(:page => params[:page], :per_page => 5)
+    end
 
+    def get_last_numerador
+      last_chamado = Chamado.last
+      if(last_chamado == nil)
+        @numerador = 1
+      else
+        @numerador = last_chamado.numerador + 1
+      end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def chamado_params
-      params.require(:chamado).permit(:usuario_id, :data_abertura, :data_fechamento, :cliente_modulo_id, :base_id, :tipo_chamado_id, :prioridade_id, :descricao)
+      params.require(:chamado).permit(:usuario_id, :data_abertura, :data_fechamento, :cliente_modulo_id, :base_id, :tipo_chamado_id, :prioridade_id, :numerador, :descricao)
     end
 end
