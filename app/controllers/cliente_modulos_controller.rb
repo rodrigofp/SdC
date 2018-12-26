@@ -29,7 +29,7 @@ class ClienteModulosController < ApplicationController
 
     respond_to do |format|
       if @cliente_modulo.save
-        format.html { redirect_to @cliente_modulo, notice: 'Cliente modulo was successfully created.' }
+        format.html { redirect_to @cliente_modulo, notice: "Cliente-Módulo #{t('messages.created')}." }
         format.json { render :show, status: :created, location: @cliente_modulo }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ClienteModulosController < ApplicationController
   def update
     respond_to do |format|
       if @cliente_modulo.update(cliente_modulo_params)
-        format.html { redirect_to @cliente_modulo, notice: 'Cliente modulo was successfully updated.' }
+        format.html { redirect_to @cliente_modulo, notice: "Cliente-Módulo #{t('messages.updated')}." }
         format.json { render :show, status: :ok, location: @cliente_modulo }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ClienteModulosController < ApplicationController
   def destroy
     @cliente_modulo.destroy
     respond_to do |format|
-      format.html { redirect_to cliente_modulos_url, notice: 'Cliente modulo was successfully destroyed.' }
+      format.html { redirect_to cliente_modulos_url, notice: "Cliente-Módulo #{t('messages.destroyed')}." }
       format.json { head :no_content }
     end
   end
