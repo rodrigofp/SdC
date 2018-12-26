@@ -8,7 +8,7 @@
             <div class="carousel-item">
                 <%= render :partial => 'show_atendimento_chamado', locals: { atendimento: atendimento } %>
                 <p>
-                    <strong><%= i %> de <%= @atendimentos.count == 1 ? 2 : @atendimentos.count %></strong>
+                    <strong><%= i %> de <%= @atendimentos.count + 1 %></strong>
                 </p>
                 <% i += 1%>
             </div>

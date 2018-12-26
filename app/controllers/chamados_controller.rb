@@ -3,6 +3,7 @@ class ChamadosController < ApplicationController
   before_action :get_options, only: [:new, :edit, :update, :create]
   before_action :get_last_numerador, only: [:new, :create]
 
+
   # GET /chamados
   # GET /chamados.json
   def index
@@ -18,6 +19,7 @@ class ChamadosController < ApplicationController
   # GET /chamados/new
   def new
     @chamado = Chamado.new
+    @chamado.atendimento_chamados.build
   end
 
   # GET /chamados/1/edit
@@ -30,6 +32,7 @@ class ChamadosController < ApplicationController
   # POST /chamados.json
   def create
     @chamado = Chamado.new(chamado_params)
+    set_atendimento_chamado
     respond_to do |format|
       if @chamado.save
         format.html { redirect_to @chamado, notice: "Chamado #{t('messages.created')}" }
@@ -91,8 +94,16 @@ class ChamadosController < ApplicationController
         @numerador = last_chamado.numerador + 1
       end
     end
+
+    def set_atendimento_chamado
+      @chamado.atendimento_chamados[0].usuario_id = @chamado.usuario_id
+      @chamado.atendimento_chamados[0].base_id = @chamado.base_id
+      @chamado.atendimento_chamados[0].status_id = 1
+      @chamado.atendimento_chamados[0].data = @chamado.data_abertura
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def chamado_params
-      params.require(:chamado).permit(:usuario_id, :data_abertura, :data_fechamento, :cliente_modulo_id, :base_id, :tipo_chamado_id, :prioridade_id, :numerador, :descricao)
+      params.require(:chamado).permit(:usuario_id, :data_abertura, :data_fechamento, :cliente_modulo_id, :base_id, :tipo_chamado_id, :prioridade_id, :numerador,
+      atendimento_chamados_attributes:[:descricao])
     end
 end

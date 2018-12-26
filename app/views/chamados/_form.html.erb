@@ -53,11 +53,13 @@
   </div>
   
   <% unless @chamado.persisted? %>
-    <div class="field row form-group justify-content-center">
-      <%= form.label :descricao, class: "col-2 col-form-label" %>
-      <%= form.text_area :descricao, rows: "5", class: "form-control col-4" %>
-      <%= render 'shared/invalid_feedback'%>
-    </div>
+    <%= form.fields_for :atendimento_chamados do |atendimento_fields|%>
+      <div class="field row form-group justify-content-center">
+        <%= atendimento_fields.label :descricao, class: "col-2 col-form-label" %>
+        <%= atendimento_fields.text_area :descricao, rows: "5", class: "form-control col-4" %>
+        <%= render 'shared/invalid_feedback'%>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="actions d-flex justify-content-center">
