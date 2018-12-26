@@ -15,7 +15,11 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
+gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 
+gem 'solargraph'
+# Pagination library for Rails, Sinatra, Merb, DataMapper, and more
+gem 'will_paginate', '~> 3.1.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -26,6 +30,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+
+gem 'webpacker'
+#Validate, generate and format CPF/CNPJ numbers. Include command-line tools.
+gem "cpf_cnpj"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

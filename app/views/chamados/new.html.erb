@@ -1,5 +1,5 @@
-<h1 class="card-header bg-grad">Cadastrar Chamado</h1>
+<h1 class="card-header bg-grad"><%= t('labels.create')%> Chamado</h1>
 <br>
 <%= render 'form', chamado: @chamado %>
-
-<%= link_to 'Voltar', chamados_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
+<br>
+<%= render :partial => 'shared/button_back', locals: { path: chamados_path }%>

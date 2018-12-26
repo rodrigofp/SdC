@@ -1,0 +1,25 @@
+<div id="carousel-atendimento" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <%= render :partial => 'show_chamado_first' %>
+        </div>
+        <% i = 2 %>
+        <% @atendimentos.each do |atendimento| %>
+            <div class="carousel-item">
+                <%= render :partial => 'show_atendimento_chamado', locals: { atendimento: atendimento } %>
+                <p>
+                    <strong><%= i %> de <%= @atendimentos.count + 1 %></strong>
+                </p>
+                <% i += 1%>
+            </div>
+        <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carousel-atendimento" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only"><%= t "will_paginate.previous_label"%></span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-atendimento" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only"><%= t "will_paginate.next_label"%></span>
+    </a>
+</div>

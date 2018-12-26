@@ -11,13 +11,15 @@ Lista de pendências(a lista também está em andamento  ¯\\\_(ツ)_/¯ )
 8. Incluir anexos nos e-mails enviados.
 
 
-...
+
+
 Running Sprint:
-PB -> Cadastro de chamado
+PB -> Página de login
 Requisitos(order by importância): 
-1. Ao cadastrar o chamado, salvar automaticamente a primeira iteração do mesmo com o status "Aberto"
-2. Na view show, exibir todas as iterações do chamado em um carousel.
-3. Select de módulo dinâmico no cadastro.
+1. Página de login.
+2. Excluir drop de usuários, utilizar variáveis de sessão.
+3. Hashear as senhas.
+4. Restringir ações por tipo de usuário.
 
 
 #C'est la vie

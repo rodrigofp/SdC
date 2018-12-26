@@ -1,0 +1,39 @@
+<p>
+  <strong>Número:</strong>
+  <%= @chamado.numerador %>
+</p>
+
+<p>
+  <strong>Cliente-Módulo:</strong>
+  <%= @chamado.cliente_modulo.options_select %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @chamado.usuario.nome %>
+</p>
+
+<p>
+  <strong>Prioridade:</strong>
+  <%= @chamado.prioridade.nome %>
+</p>
+
+<p>
+  <strong>Tipo chamado:</strong>
+  <%= @chamado.tipo_chamado.tipo %>
+</p>
+
+
+<p>
+  <strong>Data abertura:</strong>
+  <%= @chamado.data_abertura %>
+</p>
+
+<p>
+  <strong>Data fechamento:</strong>
+  <%= @chamado.data_fechamento %>
+</p>
+
+<p>
+    <strong> 1 de <%= @chamado.atendimento_chamados.count + 1 %></strong>
+</p>

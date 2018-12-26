@@ -1,4 +1,4 @@
-<h1 class="card-header bg-grad"> Detalhes do Cliente Modulo</h1>
+<h1 class="card-header bg-grad"><%= t('labels.details') %> do Cliente Modulo</h1>
 
 <p id="notice"><%= notice %></p>
 
@@ -22,5 +22,5 @@
   <%= @cliente_modulo.updated_at %>
 </p>
 
-<%= link_to 'Alterar', edit_cliente_modulo_path(@cliente_modulo), class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
-<%= link_to 'Voltar', cliente_modulos_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
+<%= render :partial => 'shared/button_edit', locals: { path: edit_cliente_modulo_path(@cliente_modulo) }%>
+<%= render :partial => 'shared/button_back', locals: { path: cliente_modulos_path }%>

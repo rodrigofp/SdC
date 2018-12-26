@@ -1,33 +1,33 @@
 
-  <h1 class="card-header bg-grad">Usuarios</h1>
+<h1 class="card-header bg-grad">Usuarios</h1>
 
-  <p id="notice"><%= notice %></p>
-  <table class="table table-hover text-left">
-    <thead>
+<p id="notice"><%= notice %></p>
+<table class="table table-hover text-left">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cpf</th>
+      <th>Tipo usuario</th>
+      <th>Cliente</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usuarios.each do |usuario| %>
       <tr>
-        <th>Nome</th>
-        <th>Cpf</th>
-        <th>Tipo usuario</th>
-        <th>Cliente</th>
-        <th colspan="3"></th>
+        <td><%= usuario.nome %></td>
+        <td><%= usuario.cpf %></td>
+        <td><%= usuario.tipo_usuario.tipo %></td>
+        <td><%= usuario.cliente.nome %></td>
+        <%= render :partial => 'shared/button_index', locals: { show_path: usuario, edit_path: edit_usuario_path(usuario) }%>
       </tr>
-    </thead>
+    <% end %>
+  </tbody>
+</table>
 
-    <tbody>
-      <% @usuarios.each do |usuario| %>
-        <tr>
-          <td><%= usuario.nome %></td>
-          <td><%= usuario.cpf %></td>
-          <td><%= usuario.tipo_usuario.tipo %></td>
-          <td><%= usuario.cliente.nome %></td>
-          <td><%= link_to 'Detalhes', usuario, class: "btn btn-sm btn-grad bg-grad" %></td>
-          <td><%= link_to 'Alterar', edit_usuario_path(usuario), class: "btn btn-sm btn-grad bg-grad" %></td>
-          <td><%= link_to 'Excluir', usuario, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="apple_pagination d-flex justify-content-center">
+  <%= will_paginate @usuarios %>
+</div>
 
-  <br>
-
-  <%= link_to 'Novo Usuario', new_usuario_path, class: "btn btn-bottom btn-grad bg-grad" %>
+<%= render :partial => 'shared/button_new', locals: { path: new_usuario_path, text: ' Usuário' }%>

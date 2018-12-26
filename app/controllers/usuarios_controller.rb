@@ -1,29 +1,26 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
+  before_action :get_options, only: [:new, :edit, :update, :create]
+  before_action :get_contatos, only: [:edit, :show, :update]
 
   # GET /usuarios
   # GET /usuarios.json
   def index
-    @usuarios = Usuario.all
+    @usuarios = Usuario.paginate(:page => params[:page])
   end
 
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
-    get_contatos
   end
 
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
-    get_options
   end
 
   # GET /usuarios/1/edit
   def edit
-    @contatos = Contato.where(:usuario_id => @usuario.id).all 
-    puts @contatos.inspect
-    get_options
   end
 
   # POST /usuarios
@@ -33,7 +30,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario, notice: 'Usuario cadastrado com sucesso.' }
+        format.html { redirect_to @usuario, notice: "Usuário #{t('messages.created')}" }
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new }
@@ -47,7 +44,7 @@ class UsuariosController < ApplicationController
   def update
     respond_to do |format|
       if @usuario.update(usuario_params)
-        format.html { redirect_to @usuario, notice: 'Usuario salvo com sucesso.' }
+        format.html { redirect_to @usuario, notice: "Usuário #{t('messages.updated')}" }
         format.json { render :show, status: :ok, location: @usuario }
       else
         format.html { render :edit }
@@ -61,7 +58,7 @@ class UsuariosController < ApplicationController
   def destroy
     @usuario.destroy
     respond_to do |format|
-      format.html { redirect_to usuarios_url, notice: 'Usuario excluído com sucesso.' }
+      format.html { redirect_to usuarios_url, notice: "Usuário #{t('messages.destroyed')}" }
       format.json { head :no_content }
     end
   end
@@ -79,7 +76,7 @@ class UsuariosController < ApplicationController
     end
     
     def get_contatos
-      @contatos = Contato.where(:usuario_id => @usuario.id).all
+      @contatos = @usuario.contatos.paginate(:page => params[:page], :per_page => 5)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -14,13 +14,12 @@
     <% @clientes.each do |cliente| %>
       <tr>
         <td><%= cliente.nome %></td>
-        <td><%= link_to 'Detalhes', cliente, class: "btn btn-sm btn-grad bg-grad" %></td>
-        <td><%= link_to 'Alterar', edit_cliente_path(cliente), class: "btn btn-sm btn-grad bg-grad" %></td>
-        <td><%= link_to 'Excluir', cliente, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= render :partial => 'shared/button_index', locals: { show_path: cliente, edit_path: edit_cliente_path(cliente) }%>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-<%= link_to 'Novo Cliente', new_cliente_path, class: "btn btn-bottom btn-grad bg-grad" %>
+<div class="apple_pagination d-flex justify-content-center">
+<%= will_paginate @cliente_modulos %>
+</div>
+<%= render :partial => 'shared/button_new', locals: { path: new_cliente_path, text: ' Cliente' }%>

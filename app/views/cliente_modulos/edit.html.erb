@@ -1,6 +1,7 @@
-<h1 class="card-header bg-grad">Alterar Cliente Modulo</h1>
+<h1 class="card-header bg-grad"><%= t('labels.edit')%> Cliente Modulo</h1>
 <br>
 <%= render 'form', cliente_modulo: @cliente_modulo %>
+<br>
+<%= render :partial => 'shared/button_show', locals: { path: @cliente_modulo } %>
+<%= render :partial => 'shared/button_back', locals: { path: cliente_modulos_path } %>
 
-<%= link_to 'Detalhes', @cliente_modulo, class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
-<%= link_to 'Back', cliente_modulos_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>

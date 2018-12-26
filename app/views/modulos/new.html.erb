@@ -2,4 +2,4 @@
 <br>
 <%= render 'form', modulo: @modulo %>
 
-<%= link_to 'Voltar', modulos_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
+<%= render :partial => 'shared/button_back', locals: { path: modulo_path }%>

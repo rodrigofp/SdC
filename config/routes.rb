@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :statuses
+  resources :atendimento_chamados
   resources :cliente_modulos
   resources :bases
   get 'home/index'
@@ -7,8 +9,6 @@ Rails.application.routes.draw do
   resources :modulos
   resources :tipo_chamados
   resources :prioridades
-  resources :status_externos
-  resources :status_internos
   resources :contatos
   resources :tipo_contatos
   resources :usuarios

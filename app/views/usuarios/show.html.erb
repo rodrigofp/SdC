@@ -1,50 +1,51 @@
 
-<h1 class="card-header bg-grad">Detalhes Cliente</h1>
+<h1 class="card-header bg-grad"><%= t('labels.details') %> Usuário</h1>
 
 <p id="notice"><%= notice %></p>
 
 <p>
-<strong>Nome:</strong>
-<%= @usuario.nome %>
+    <strong>Nome:</strong>
+    <%= @usuario.nome %>
 </p>
 
 <p>
-<strong>Senha:</strong>
-<%= @usuario.senha %>
+    <strong>Senha:</strong>
+    <%= @usuario.senha %>
 </p>
 
 <p>
-<strong>Cpf:</strong>
-<%= @usuario.cpf %>
+    <strong>Cpf:</strong>
+    <%= @usuario.cpf %>
 </p>
 
 <p>
-<strong>Tipo usuario:</strong>
-<%= @usuario.tipo_usuario.tipo %>
+    <strong>Tipo usuario:</strong>
+    <%= @usuario.tipo_usuario.tipo %>
 </p>
 
 <p>
-<strong>Cliente:</strong>
-<%= @usuario.cliente.nome %>
+    <strong>Cliente:</strong>
+    <%= @usuario.cliente.nome %>
 </p>
 
-<% @contatos.each do |contato| %>
+<% @usuario.contatos.each do |contato| %>
 
-<p>
-<strong><%= contato.tipo_contato.tipo %>:</strong>
-<%= contato.contato %>
-</p>
+    <p>
+        <strong><%= contato.tipo_contato.tipo %>:</strong>
+        <%= contato.contato %>
+    </p>
 
 <% end %>
 
 <p>
-<strong>Criado em:</strong>
-<%= @usuario.created_at %>
-</p>
+    <strong>Criado em:</strong>
+    <%= l @usuario.created_at %>
+    </p>
 <p>
-<strong>Alterado em:</strong>
-<%= @usuario.updated_at %>
+    <strong>Alterado em:</strong>
+    <%= l @usuario.updated_at %>
 </p>
-<%= link_to 'Alterar', edit_usuario_path(@usuario), class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
-<%= link_to 'Voltar', usuarios_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
+<%= render :partial => 'shared/button_edit', locals: { path: edit_usuario_path(@usuario) }%>
+<%= render :partial => 'shared/button_back', locals: { path: usuarios_path }%>
+
 

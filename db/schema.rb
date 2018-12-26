@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_23_123946) do
+ActiveRecord::Schema.define(version: 2018_12_25_144638) do
+
+  create_table "atendimento_chamados", force: :cascade do |t|
+    t.integer "chamado_id"
+    t.integer "usuario_id"
+    t.integer "base_id"
+    t.datetime "data"
+    t.text "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "status_id"
+    t.index ["base_id"], name: "index_atendimento_chamados_on_base_id"
+    t.index ["chamado_id"], name: "index_atendimento_chamados_on_chamado_id"
+    t.index ["status_id"], name: "index_atendimento_chamados_on_status_id"
+    t.index ["usuario_id"], name: "index_atendimento_chamados_on_usuario_id"
+  end
 
   create_table "bases", force: :cascade do |t|
     t.string "nome"
@@ -28,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_12_23_123946) do
     t.datetime "updated_at", null: false
     t.integer "base_id"
     t.integer "cliente_modulo_id"
+    t.integer "numerador"
     t.index ["base_id"], name: "index_chamados_on_base_id"
     t.index ["cliente_modulo_id"], name: "index_chamados_on_cliente_modulo_id"
     t.index ["prioridade_id"], name: "index_chamados_on_prioridade_id"
@@ -72,13 +88,7 @@ ActiveRecord::Schema.define(version: 2018_12_23_123946) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "status_externos", force: :cascade do |t|
-    t.string "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "status_internos", force: :cascade do |t|
+  create_table "statuses", force: :cascade do |t|
     t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

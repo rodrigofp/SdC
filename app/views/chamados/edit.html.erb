@@ -1,6 +1,9 @@
-<h1 class="card-header bg-grad">Alterar Chamado</h1>
+<h1 class="card-header bg-grad"><%= t('labels.edit')%> Chamado</h1>
 <br>
 <%= render 'form', chamado: @chamado %>
+<br>
+<%= render 'index_atendimentos' %>
+<br>
+<%= render :partial => 'shared/button_show', locals: { path: @chamado } %>
+<%= render :partial => 'shared/button_back', locals: { path: chamados_path } %>
 
-<%= link_to 'Detalhes', @chamado, class: "btn btn-bottom btn-sm btn-grad bg-grad" %>
-<%= link_to 'Voltar', chamados_path, class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>

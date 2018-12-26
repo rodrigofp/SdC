@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Atendimento Chamados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Chamado</th>
+      <th>Usuario</th>
+      <th>Status interno</th>
+      <th>Status externo</th>
+      <th>Base</th>
+      <th>Data</th>
+      <th>Descricao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atendimento_chamados.each do |atendimento_chamado| %>
+      <tr>
+        <td><%= atendimento_chamado.chamado %></td>
+        <td><%= atendimento_chamado.usuario %></td>
+        <td><%= atendimento_chamado.status_interno %></td>
+        <td><%= atendimento_chamado.status_externo %></td>
+        <td><%= atendimento_chamado.base %></td>
+        <td><%= atendimento_chamado.data %></td>
+        <td><%= atendimento_chamado.descricao %></td>
+        <td><%= link_to 'Show', atendimento_chamado %></td>
+        <td><%= link_to 'Edit', edit_atendimento_chamado_path(atendimento_chamado) %></td>
+        <td><%= link_to 'Destroy', atendimento_chamado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Atendimento Chamado', new_atendimento_chamado_path %>

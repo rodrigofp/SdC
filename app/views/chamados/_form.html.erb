@@ -1,7 +1,7 @@
 <%= form_with(model: chamado, local: true) do |form| %>
   <% if chamado.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(chamado.errors.count, "error") %> prohibited this chamado from being saved:</h2>
+    <div id="error_explanation" class="bg-excluir">
+      <h2><%= "#{chamado.errors.count} #{t('messages.error', count: chamado.errors.count)}:" %></h2>
 
       <ul>
       <% chamado.errors.full_messages.each do |message| %>
@@ -12,29 +12,55 @@
   <% end %>
 
   <div class="field row form-group justify-content-center">
-    <%= form.label :usuario_id, class: "col-2 col-form-label" %>
-    <%= collection_select :chamado, :usuario_id, @usuarios_all, :id, :nome, {}, class: "form-control col-4"  %>
+    <%= form.label :numerador, class: "col-2 col-form-label" %>
+    <%= form.text_field :numerador, :value => @numerador, class: "form-control col-4", :readonly => true %>
+    <%= render 'shared/invalid_feedback'%>
   </div>
 
-  <div class="field row form-group justify-content-center">
+  <div class="hidden">
     <%= form.label :data_abertura, class: "col-2 col-form-label" %>
     <%= form.datetime_select :data_abertura, class: "form-control col-4" %>
   </div>
 
   <div class="field row form-group justify-content-center">
-    <%= form.label :modulo_id, class: "col-2 col-form-label" %>
-    <%= collection_select :chamado, :modulo_id, @modulos_all, :id, :nome, {}, class: "form-control col-4" %>
+    <%= form.label :usuario_id, class: "col-2 col-form-label" %>
+    <%= form.collection_select :usuario_id, @usuarios_all, :id, :nome, {}, class: "form-control col-4"  %>
+    <%= render 'shared/invalid_feedback'%>
+  </div>
+
+  <div class="field row form-group justify-content-center">
+    <%= form.label :base_id, class: "col-2 col-form-label" %>
+    <%= form.collection_select :base_id, @bases_all, :id, :nome, {}, class: "form-control col-4" %>
+    <%= render 'shared/invalid_feedback'%>
+  </div>
+
+  <div class="field row form-group justify-content-center">
+    <%= form.label :cliente_modulo_id, class: "col-2 col-form-label" %>
+    <%= form.collection_select :cliente_modulo_id, @cliente_modulos_all, :id, :options_select, {}, class: "form-control col-4" %>
+    <%= render 'shared/invalid_feedback'%>
   </div>
 
   <div class="field row form-group justify-content-center">
     <%= form.label :tipo_chamado_id, class: "col-2 col-form-label" %>
-    <%= collection_select :chamado, :tipo_chamado_id, @tipo_chamados_all, :id, :tipo, {}, class: "form-control col-4" %>
+    <%= form.collection_select :tipo_chamado_id, @tipo_chamados_all, :id, :tipo, {}, class: "form-control col-4" %>
+    <%= render 'shared/invalid_feedback'%>
   </div>
 
   <div class="field row form-group justify-content-center">
     <%= form.label :prioridade_id, class: "col-2 col-form-label" %>
-    <%= collection_select :chamado, :prioridade_id, @prioridades_all, :id, :nome, {}, class: "form-control col-4" %>
+    <%= form.collection_select :prioridade_id, @prioridades_all, :id, :nome, {}, class: "form-control col-4" %>
+    <%= render 'shared/invalid_feedback'%>
   </div>
+  
+  <% unless @chamado.persisted? %>
+    <%= form.fields_for :atendimento_chamados do |atendimento_fields|%>
+      <div class="field row form-group justify-content-center">
+        <%= atendimento_fields.label :descricao, class: "col-2 col-form-label" %>
+        <%= atendimento_fields.text_area :descricao, rows: "5", class: "form-control col-4" %>
+        <%= render 'shared/invalid_feedback'%>
+      </div>
+    <% end %>
+  <% end %>
 
   <div class="actions d-flex justify-content-center">
     <%= form.submit "Salvar", class: "btn btn-grad bg-grad" %>

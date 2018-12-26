@@ -1,2 +1,0 @@
-class StatusInterno < ApplicationRecord
-end

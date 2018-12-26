@@ -1,5 +1,5 @@
-<h1 class="card-header bg-grad">Cadastrar Contato</h1>
+<h1 class="card-header bg-grad"><%= t('labels.create')%> Contato</h1>
 <br>
 <%= render 'form', contato: @contato %>
-
-<%= link_to 'Voltar', edit_usuario_path(@usuario_all.first), class: "btn btn-bottom btn-sm btn-voltar bg-voltar" %>
+<br>
+<%= render :partial => 'shared/button_back', locals: { path: edit_usuario_path(@contato.usuario) }%>

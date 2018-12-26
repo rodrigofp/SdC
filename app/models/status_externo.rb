@@ -1,2 +1,0 @@
-class StatusExterno < ApplicationRecord
-end

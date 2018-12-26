@@ -5,12 +5,13 @@
 <table class="table table-hover text-left">
   <thead>
     <tr>
+      <th>Número</th>
+      <th>Cliente-Modulo</th>
       <th>Usuario</th>
+      <th>Prioridade</th>
+      <th>Tipo chamado</th>
       <th>Data abertura</th>
       <th>Data fechamento</th>
-      <th>Modulo</th>
-      <th>Tipo chamado</th>
-      <th>Prioridade</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,20 +19,21 @@
   <tbody>
     <% @chamados.each do |chamado| %>
       <tr>
+        <td><%= chamado.numerador %></td>
+        <td><%= chamado.cliente_modulo.options_select %></td>
         <td><%= chamado.usuario.nome %></td>
+        <td><%= chamado.prioridade.nome %></td>
+        <td><%= chamado.tipo_chamado.tipo %></td>
         <td><%= chamado.data_abertura %></td>
         <td><%= chamado.data_fechamento %></td>
-        <td><%= chamado.modulo.nome %></td>
-        <td><%= chamado.tipo_chamado.tipo %></td>
-        <td><%= chamado.prioridade.nome %></td>
-        <td><%= link_to 'Detalhes', chamado, class: "btn btn-sm btn-grad bg-grad" %></td>
-        <td><%= link_to 'Alterar', edit_chamado_path(chamado), class: "btn btn-sm btn-grad bg-grad" %></td>
-        <td><%= link_to 'Excluir', chamado, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= render :partial => 'shared/button_index', locals: { show_path: chamado, edit_path: edit_chamado_path(chamado) }%>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<div class="apple_pagination d-flex justify-content-center">
+  <%= will_paginate @chamados %>
+</div>
 
-<%= link_to 'Novo Chamado', new_chamado_path, class: "btn btn-bottom btn-grad bg-grad" %>
+<%= render :partial => 'shared/button_new', locals: { path: new_chamado_path, text: ' Chamado' }%>

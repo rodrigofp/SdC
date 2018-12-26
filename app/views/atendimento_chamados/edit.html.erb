@@ -1,0 +1,5 @@
+<h1 class="card-header bg-grad"><%= t('labels.edit')%> Status Chamado</h1>
+<br>
+<%= render 'form', atendimento_chamado: @atendimento_chamado %>
+<br>
+<%= render :partial => 'shared/button_back', locals: { path: edit_chamado_path(@atendimento_chamado.chamado) } %>

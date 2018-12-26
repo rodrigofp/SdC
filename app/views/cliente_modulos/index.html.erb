@@ -1,5 +1,4 @@
-
-<h1 class="card-header bg-grad">Cliente Modulos</h1>
+<h1 class="card-header bg-grad">Cliente Módulos</h1>
 
 <p id="notice"><%= notice %></p>
 <table class="table table-hove text-left">
@@ -16,14 +15,13 @@
       <tr>
         <td><%= cliente_modulo.cliente.nome %></td>
         <td><%= cliente_modulo.modulo.nome %></td>
-        <td><%= link_to 'Detalhes', cliente_modulo, class: "btn btn-sm btn-grad bg-grad" %></td>
-        <td><%= link_to 'Alterar', edit_cliente_modulo_path(cliente_modulo), class: "btn btn-sm btn-grad bg-grad" %></td>
-        <td><%= link_to 'Excluir', cliente_modulo, class: "btn btn-sm btn-excluir bg-excluir", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= render :partial => 'shared/button_index', locals: { show_path: cliente_modulo, edit_path: edit_cliente_modulo_path(cliente_modulo) }%>
       </tr>
     <% end %>
   </tbody>
 </table>
+<div class="apple_pagination d-flex justify-content-center">
+<%= will_paginate @cliente_modulos %>
+</div>
 
-<br>
-
-<%= link_to 'Novo Cliente Modulo', new_cliente_modulo_path, class: "btn btn-bottom btn-grad bg-grad" %>
+<%= render :partial => 'shared/button_new', locals: { path: new_cliente_modulo_path, text: ' Cliente Módulo' }%>
