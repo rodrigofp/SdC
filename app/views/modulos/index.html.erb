@@ -19,7 +19,8 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
+<% if @modulos.count > 10 %>
+  <%= render :partial => 'shared/pagination', locals: { collection: @modulos }%>
+<% end %>
 
 <%= render :partial => 'shared/button_new', locals: { path: new_modulo_path, text: ' Módulo' }%>

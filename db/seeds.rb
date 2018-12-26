@@ -77,26 +77,3 @@ Status.create([
     {nome: "Finalizado"},
 ])
 puts "Criando status...[OK]"
-
-puts "Criando usuarios..."
-10.times do |i|
-    Usuario.create({
-        nome: Faker::Name.name,
-        senha: Faker::Lorem.word,
-        cpf: Faker::IDNumber.valid,
-        tipo_usuario: TipoUsuario.all.sample,
-        cliente: Cliente.all.sample
-    })
-end
-puts "Criando usuarios...[OK]"
-
-puts "Criando modulos..."
-Cliente.all.each do |cliente|
-    Modulo.all.each do |modulo|
-        ClienteModulo.create({
-            cliente: cliente,
-            modulo: modulo
-        })
-    end
-end
-puts "Criando modulos...[OK]"

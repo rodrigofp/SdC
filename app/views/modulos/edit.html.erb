@@ -1,6 +1,6 @@
-<h1 class="card-header bg-grad">Alterar Módulo</h1>
+<h1 class="card-header bg-grad"><%= t('labels.edit')%> Módulo</h1>
 <br>
 <%= render 'form', modulo: @modulo %>
-
+<br>
 <%= render :partial => 'shared/button_show', locals: { path: @modulo } %>
-<%= render :partial => 'shared/button_back', locals: { path: modulo_path } %>
+<%= render :partial => 'shared/button_back', locals: { path: modulos_path } %>

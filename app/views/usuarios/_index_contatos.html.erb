@@ -20,9 +20,9 @@
         <% end %>
     </tbody>
 </table>
-<div class="apple_pagination d-flex justify-content-center">
-<%= will_paginate @contatos %>
-</div>
+<% if @contatos.count > 5 %>
+  <%= render :partial => 'shared/pagination', locals: { collection: @contatos }%>
+<% end %>
 <br>
 <div class="actions d-flex justify-content-center">
     <%= link_to 'Novo Contato', new_contato_path(:usuario => @usuario.id), class: "btn btn-grad bg-grad" %>

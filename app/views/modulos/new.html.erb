@@ -1,5 +1,5 @@
-<h1 class="card-header bg-grad">Cadastrar Modulo</h1>
+<h1 class="card-header bg-grad"><%= t('labels.create')%> Modulo</h1>
 <br>
 <%= render 'form', modulo: @modulo %>
-
-<%= render :partial => 'shared/button_back', locals: { path: modulo_path }%>
+<br>
+<%= render :partial => 'shared/button_back', locals: { path: modulos_path }%>

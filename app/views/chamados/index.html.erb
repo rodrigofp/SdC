@@ -31,9 +31,8 @@
     <% end %>
   </tbody>
 </table>
-
-<div class="apple_pagination d-flex justify-content-center">
-  <%= will_paginate @chamados %>
-</div>
+<% if @chamados.count > 10 %>
+  <%= render :partial => 'shared/pagination', locals: { collection: @chamados }%>
+<% end %>
 
 <%= render :partial => 'shared/button_new', locals: { path: new_chamado_path, text: ' Chamado' }%>
