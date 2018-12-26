@@ -12,6 +12,11 @@ body {
   line-height: 18px;
 }
 
+.background{
+  background: image-path("background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
