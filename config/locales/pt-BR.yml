@@ -15,6 +15,9 @@
     created: "cadastrado com sucesso."
     updated: "atualizado com sucesso."
     destroyed: "excluído com sucesso."
+    error: 
+      one: "erro impediu a ação de ser realizada."
+      other: "erros impediram a ação de ser realizada."
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próxima"

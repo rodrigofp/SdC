@@ -5,7 +5,15 @@ class Chamado < ApplicationRecord
   belongs_to :prioridade
   belongs_to :base
 
-  has_many :atendimento_chamados, dependent: :delete_all
+  validates :base, presence: true
+  validates :usuario, presence: true
+  validates :tipo_chamado, presence: true
+  validates :cliente_modulo, presence: true
+  validates :prioridade, presence: true
+  validates :data_abertura, presence: true
+  validates_associated :atendimento_chamados
+
+  has_many :atendimento_chamados, dependent: :delete_all, inverse_of: :chamado
 
   attr_accessor :descricao
 

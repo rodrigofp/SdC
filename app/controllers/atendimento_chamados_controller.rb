@@ -1,5 +1,6 @@
 class AtendimentoChamadosController < ApplicationController
   before_action :set_atendimento_chamado, only: [:show, :edit, :update, :destroy]
+  before_action :get_options, only: [:new, :edit, :update, :create]
 
   # GET /atendimento_chamados
   # GET /atendimento_chamados.json
@@ -16,12 +17,10 @@ class AtendimentoChamadosController < ApplicationController
   def new
     @atendimento_chamado = AtendimentoChamado.new
     @atendimento_chamado.chamado_id = params[:chamado]
-    get_options
   end
 
   # GET /atendimento_chamados/1/edit
   def edit
-    get_options
   end
 
   # POST /atendimento_chamados

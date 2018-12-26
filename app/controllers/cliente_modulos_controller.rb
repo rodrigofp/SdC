@@ -1,5 +1,6 @@
 class ClienteModulosController < ApplicationController
   before_action :set_cliente_modulo, only: [:show, :edit, :update, :destroy]
+  before_action :get_options, only: [:new, :edit, :update, :create]
 
   # GET /cliente_modulos
   # GET /cliente_modulos.json
@@ -15,12 +16,10 @@ class ClienteModulosController < ApplicationController
   # GET /cliente_modulos/new
   def new
     @cliente_modulo = ClienteModulo.new
-    get_options
   end
 
   # GET /cliente_modulos/1/edit
   def edit
-    get_options
   end
 
   # POST /cliente_modulos

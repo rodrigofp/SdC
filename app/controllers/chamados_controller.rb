@@ -1,5 +1,6 @@
 class ChamadosController < ApplicationController
   before_action :set_chamado, only: [:show, :edit, :update, :destroy]
+  before_action :get_options, only: [:edit, :update, :create]
 
   # GET /chamados
   # GET /chamados.json

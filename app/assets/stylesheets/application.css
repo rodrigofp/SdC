@@ -50,7 +50,7 @@
     background-image: linear-gradient(to right, #757F9A 0%, #EAECC6 51%, #757F9A 100%);
 }
 
-.btn-excluir{
+.bg-excluir{
     background-image: linear-gradient(to right, #FF6B6B 0%, #EAECC6 51%, #FF6B6B 100%);
 }
 
@@ -127,7 +127,6 @@
 
 /* PAGINATION  */
 
-
 .apple_pagination {
     background-image: linear-gradient(to right, #757F9A 0%, #EAECC6 51%, #757F9A 100%);
     background-size: 200% auto;
@@ -158,3 +157,26 @@
     color: white; }
 .apple_pagination a:hover, .apple_pagination a:focus {
     text-decoration: underline; }
+
+
+/* FORMS ERRORS */
+
+#error_explanation{
+    width: 100%;
+    border: none;
+}
+
+#error_explanation h2{
+    text-align: center;
+    background-size: 200% auto;
+    padding-right: 15px; 
+}
+#error_explanation ul{
+    margin: 15px;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+#error_explanation ul li{
+    list-style: none;
+}

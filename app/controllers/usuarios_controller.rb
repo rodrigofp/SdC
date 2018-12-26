@@ -1,5 +1,7 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
+  before_action :get_options, only: [:new, :edit, :update, :create]
+  before_action :get_contatos, only: [:edit, :show, :update]
 
   # GET /usuarios
   # GET /usuarios.json
@@ -10,19 +12,15 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
-    get_contatos
   end
 
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
-    get_options
   end
 
   # GET /usuarios/1/edit
   def edit
-    get_options
-    get_contatos
   end
 
   # POST /usuarios

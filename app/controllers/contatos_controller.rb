@@ -1,5 +1,6 @@
 class ContatosController < ApplicationController
   before_action :set_contato, only: [:show, :edit, :update, :destroy]
+  before_action :get_options, only: [:new, :edit, :update, :create]
 
   # GET /contatos
   # GET /contatos.json
@@ -16,12 +17,10 @@ class ContatosController < ApplicationController
   def new
     @contato = Contato.new
     @contato.usuario_id = params[:usuario]
-    get_options
   end
 
   # GET /contatos/1/edit
   def edit
-    get_options
   end
 
   # POST /contatos
