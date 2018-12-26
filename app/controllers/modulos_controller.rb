@@ -4,7 +4,7 @@ class ModulosController < ApplicationController
   # GET /modulos
   # GET /modulos.json
   def index
-    @modulos = Modulo.all
+    @modulos = Modulo.paginate(:page => params[:page])
   end
 
   # GET /modulos/1
@@ -28,7 +28,7 @@ class ModulosController < ApplicationController
 
     respond_to do |format|
       if @modulo.save
-        format.html { redirect_to @modulo, notice: 'Modulo was successfully created.' }
+        format.html { redirect_to @modulo, notice: "Módulo #{t('messages.created')}." }
         format.json { render :show, status: :created, location: @modulo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ModulosController < ApplicationController
   def update
     respond_to do |format|
       if @modulo.update(modulo_params)
-        format.html { redirect_to @modulo, notice: 'Modulo was successfully updated.' }
+        format.html { redirect_to @modulo, notice: "Módulo #{t('messages.update')}." }
         format.json { render :show, status: :ok, location: @modulo }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ModulosController < ApplicationController
   def destroy
     @modulo.destroy
     respond_to do |format|
-      format.html { redirect_to modulos_url, notice: 'Modulo was successfully destroyed.' }
+      format.html { redirect_to modulos_url, notice: "Módulo #{t('messages.destroyed')}." }
       format.json { head :no_content }
     end
   end

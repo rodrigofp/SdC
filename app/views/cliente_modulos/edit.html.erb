@@ -2,6 +2,5 @@
 <br>
 <%= render 'form', cliente_modulo: @cliente_modulo %>
 <br>
-<%= render :partial => 'shared/button_show', locals: { path: @cliente_modulo } %>
-<%= render :partial => 'shared/button_back', locals: { path: cliente_modulos_path } %>
+<%= render :partial => 'shared/button_back', locals: { path: edit_cliente_path(@cliente_modulo.cliente) } %>
 

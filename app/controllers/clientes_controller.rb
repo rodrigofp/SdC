@@ -1,6 +1,6 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
-
+  before_action :get_modulos, only: [:edit, :show, :update]
   # GET /clientes
   # GET /clientes.json
   def index
@@ -67,6 +67,9 @@ class ClientesController < ApplicationController
       @cliente = Cliente.find(params[:id])
     end
 
+    def get_modulos
+      @cliente_modulos = @cliente.cliente_modulos.paginate(:page => params[:page], :per_page => 5)
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params
       params.require(:cliente).permit(:nome)

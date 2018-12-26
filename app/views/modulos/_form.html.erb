@@ -1,7 +1,7 @@
 <%= form_with(model: modulo, local: true) do |form| %>
   <% if modulo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(modulo.errors.count, "error") %> prohibited this modulo from being saved:</h2>
+    <div id="error_explanation" class="bg-excluir">
+      <h2><%= "#{modulo.errors.count} #{t('messages.error', count: modulo.errors.count)}:" %></h2>
 
       <ul>
       <% modulo.errors.full_messages.each do |message| %>

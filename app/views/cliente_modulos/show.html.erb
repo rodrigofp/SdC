@@ -22,5 +22,5 @@
   <%= @cliente_modulo.updated_at %>
 </p>
 
-<%= render :partial => 'shared/button_edit', locals: { path: edit_cliente_modulo_path(@cliente_modulo) }%>
-<%= render :partial => 'shared/button_back', locals: { path: cliente_modulos_path }%>
+<%= render :partial => 'shared/button_edit', locals: { path: edit_cliente_modulo_path(@cliente_modulo, :cliente => @cliente_modulo.cliente_id) }%>
+<%= render :partial => 'shared/button_back', locals: { path: edit_cliente_path(@cliente_modulo.cliente) }%>
