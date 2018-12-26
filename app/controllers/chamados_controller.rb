@@ -1,6 +1,7 @@
 class ChamadosController < ApplicationController
   before_action :set_chamado, only: [:show, :edit, :update, :destroy]
-  before_action :get_options, only: [:edit, :update, :create]
+  before_action :get_options, only: [:new, :edit, :update, :create]
+  before_action :get_last_numerador, only: [:new, :create]
 
   # GET /chamados
   # GET /chamados.json
@@ -17,13 +18,10 @@ class ChamadosController < ApplicationController
   # GET /chamados/new
   def new
     @chamado = Chamado.new
-    get_options
-    get_last_numerador
   end
 
   # GET /chamados/1/edit
   def edit
-    get_options
     @numerador = @chamado.numerador
     get_atendimentos
   end

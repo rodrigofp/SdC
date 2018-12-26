@@ -11,6 +11,7 @@ class Chamado < ApplicationRecord
   validates :cliente_modulo, presence: true
   validates :prioridade, presence: true
   validates :data_abertura, presence: true
+  validates :descricao, presence: true, length: { minimum: 3 }
   validates_associated :atendimento_chamados
 
   has_many :atendimento_chamados, dependent: :delete_all, inverse_of: :chamado

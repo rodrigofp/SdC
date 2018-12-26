@@ -1,0 +1,47 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#wrapper{
+  position: relative;
+  min-height: 100%;
+}
+
+#content{
+  padding-bottom: 70px;
+}
+
+.background{
+    background: url('/assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.conteudo{
+    position: relative;
+    margin-top: 30px;
+    width: 70%;
+    overflow: hidden;
+    border-radius: 7px;
+    box-shadow: 0 0 32px rgba(0,0,0,0.5);
+}
+
+.card-content{
+    z-index: 100;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.blur{
+    background: url('/assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    filter: blur(5px);
+    position: absolute;
+    width: 105%;
+    height: 100%;
+    top: 0;
+    z-index: 80;
+}

@@ -1,0 +1,29 @@
+/* BOTOES E GRADIENTES */
+.btn-grad, .btn-excluir, .btn-voltar {
+    transition: 0.5s;
+}
+.btn-grad:hover, .btn-excluir:hover, .btn-voltar:hover { 
+    background-position: right center; 
+    color: white;
+}
+
+.bg-grad, .bg-excluir, .bg-voltar{
+    background-size: 200% auto;
+    color: white;
+}
+
+.bg-grad{
+    background-image: linear-gradient(to right, #2BC0E4 0%, #EAECC6 51%, #2BC0E4 100%);
+}
+
+.bg-voltar{
+    background-image: linear-gradient(to right, #757F9A 0%, #EAECC6 51%, #757F9A 100%);
+}
+
+.bg-excluir{
+    background-image: linear-gradient(to right, #FF6B6B 0%, #EAECC6 51%, #FF6B6B 100%);
+}
+
+.btn-bottom{
+    width: 100%;
+}

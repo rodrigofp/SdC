@@ -1,7 +1,7 @@
 <%= form_with(model: atendimento_chamado, local: true) do |form| %>
   <% if atendimento_chamado.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(atendimento_chamado.errors.count, "error") %> prohibited this atendimento_chamado from being saved:</h2>
+    <div id="error_explanation" class="bg-excluir">
+      <h2><%= "#{atendimento_chamado.errors.count} #{t('messages.error', count: atendimento_chamado.errors.count)}:" %></h2>
 
       <ul>
       <% atendimento_chamado.errors.full_messages.each do |message| %>
@@ -24,21 +24,25 @@
   <div class="field row form-group justify-content-center">
     <%= form.label :status_id, class: "col-2 col-form-label" %>
     <%= form.collection_select :status_id, @statuses_all, :id, :nome, {}, { class: "form-control col-4" } %>
+    <%= render 'shared/invalid_feedback'%>
   </div>
 
   <div class="field row form-group justify-content-center">
     <%= form.label :usuario_id, class: "col-2 col-form-label" %>
     <%= form.collection_select :usuario_id, @usuarios_all, :id, :nome, {}, { class: "form-control col-4" } %>
+    <%= render 'shared/invalid_feedback'%>
   </div>
 
   <div class="field row form-group justify-content-center">
     <%= form.label :base_id, class: "col-2 col-form-label" %>
     <%= form.collection_select :base_id, @bases_all, :id, :nome, {}, { class: "form-control col-4" } %>
+    <%= render 'shared/invalid_feedback'%>
   </div>
 
   <div class="field row form-group justify-content-center">
     <%= form.label :descricao, class: "col-2 col-form-label" %>
     <%= form.text_area :descricao, class: "form-control col-4" %>
+    <%= render 'shared/invalid_feedback'%>
   </div>
 
   <div class="actions d-flex justify-content-center">

@@ -1,7 +1,7 @@
 <%= form_with(model: contato, local: true) do |form| %>
   <% if contato.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(contato.errors.count, "error") %> prohibited this contato from being saved:</h2>
+    <div id="error_explanation" class="bg-excluir">
+      <h2><%= "#{contato.errors.count} #{t('messages.error', count: contato.errors.count)}:" %></h2>
 
       <ul>
       <% contato.errors.full_messages.each do |message| %>
@@ -18,11 +18,13 @@
   <div class="field row form-group justify-content-center">
     <%= form.label :tipo_contato_id, class: "col-2 col-form-label" %>
     <%= form.collection_select :tipo_contato_id, @tipo_contato_all, :id, :tipo, {}, { class: "form-control col-4" } %>
+    <%= render 'shared/invalid_feedback'%>
   </div>
   
   <div class="field row form-group justify-content-center">
     <%= form.label :contato, class: "col-2 col-form-label" %>
     <%= form.text_field :contato, class: "form-control col-4" %>
+    <%= render 'shared/invalid_feedback'%>
   </div>
 
 

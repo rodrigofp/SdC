@@ -1,5 +1,5 @@
 <h1 class="card-header bg-grad"><%= t('labels.edit')%> Contato</h1>
 <br>
 <%= render 'form', contato: @contato %>
-
+<br>
 <%= render :partial => 'shared/button_back', locals: { path: edit_usuario_path(@contato.usuario) } %>

@@ -1,0 +1,32 @@
+/* PAGINATION  */
+
+.apple_pagination {
+    background-image: linear-gradient(to right, #757F9A 0%, #EAECC6 51%, #757F9A 100%);
+    background-size: 200% auto;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;    
+    padding: 1em;
+    cursor: default; }
+.apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+.apple_pagination .disabled {
+    color: #3d3838;
+    cursor: not-allowed; }
+.apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #2BC0E4 0%, #EAECC6 51%, #2BC0E4 100%);
+    background-size: 200% auto;
+    color: white;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;}
+.apple_pagination a {
+    text-decoration: none;
+    color: white; }
+.apple_pagination a:hover, .apple_pagination a:focus {
+    text-decoration: underline; }

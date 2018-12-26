@@ -1,9 +1,9 @@
 <h1 class="card-header bg-grad"><%= t('labels.edit')%> Chamado</h1>
 <br>
 <%= render 'form', chamado: @chamado %>
-
+<br>
 <%= render 'index_atendimentos' %>
-
+<br>
 <%= render :partial => 'shared/button_show', locals: { path: @chamado } %>
 <%= render :partial => 'shared/button_back', locals: { path: chamados_path } %>
 
