@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_25_144638) do
+ActiveRecord::Schema.define(version: 2018_12_25_144439) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "atendimento_chamados", force: :cascade do |t|
-    t.integer "chamado_id"
-    t.integer "usuario_id"
-    t.integer "base_id"
+    t.bigint "chamado_id"
+    t.bigint "usuario_id"
+    t.bigint "base_id"
     t.datetime "data"
     t.text "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status_id"
+    t.bigint "status_id"
     t.index ["base_id"], name: "index_atendimento_chamados_on_base_id"
     t.index ["chamado_id"], name: "index_atendimento_chamados_on_chamado_id"
     t.index ["status_id"], name: "index_atendimento_chamados_on_status_id"
@@ -34,15 +37,15 @@ ActiveRecord::Schema.define(version: 2018_12_25_144638) do
   end
 
   create_table "chamados", force: :cascade do |t|
-    t.integer "usuario_id"
+    t.bigint "usuario_id"
     t.datetime "data_abertura"
     t.datetime "data_fechamento"
-    t.integer "tipo_chamado_id"
-    t.integer "prioridade_id"
+    t.bigint "tipo_chamado_id"
+    t.bigint "prioridade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "base_id"
-    t.integer "cliente_modulo_id"
+    t.bigint "base_id"
+    t.bigint "cliente_modulo_id"
     t.integer "numerador"
     t.index ["base_id"], name: "index_chamados_on_base_id"
     t.index ["cliente_modulo_id"], name: "index_chamados_on_cliente_modulo_id"
@@ -52,8 +55,8 @@ ActiveRecord::Schema.define(version: 2018_12_25_144638) do
   end
 
   create_table "cliente_modulos", force: :cascade do |t|
-    t.integer "cliente_id"
-    t.integer "modulo_id"
+    t.bigint "cliente_id"
+    t.bigint "modulo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_cliente_modulos_on_cliente_id"
@@ -68,8 +71,8 @@ ActiveRecord::Schema.define(version: 2018_12_25_144638) do
 
   create_table "contatos", force: :cascade do |t|
     t.string "contato"
-    t.integer "tipo_contato_id"
-    t.integer "usuario_id"
+    t.bigint "tipo_contato_id"
+    t.bigint "usuario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tipo_contato_id"], name: "index_contatos_on_tipo_contato_id"
@@ -116,12 +119,27 @@ ActiveRecord::Schema.define(version: 2018_12_25_144638) do
     t.string "nome"
     t.string "senha"
     t.string "cpf"
-    t.integer "tipo_usuario_id"
-    t.integer "cliente_id"
+    t.bigint "tipo_usuario_id"
+    t.bigint "cliente_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_usuarios_on_cliente_id"
     t.index ["tipo_usuario_id"], name: "index_usuarios_on_tipo_usuario_id"
   end
 
+  add_foreign_key "atendimento_chamados", "bases", column: "base_id"
+  add_foreign_key "atendimento_chamados", "chamados"
+  add_foreign_key "atendimento_chamados", "statuses"
+  add_foreign_key "atendimento_chamados", "usuarios"
+  add_foreign_key "chamados", "bases", column: "base_id"
+  add_foreign_key "chamados", "cliente_modulos"
+  add_foreign_key "chamados", "prioridades"
+  add_foreign_key "chamados", "tipo_chamados"
+  add_foreign_key "chamados", "usuarios"
+  add_foreign_key "cliente_modulos", "clientes"
+  add_foreign_key "cliente_modulos", "modulos"
+  add_foreign_key "contatos", "tipo_contatos"
+  add_foreign_key "contatos", "usuarios"
+  add_foreign_key "usuarios", "clientes"
+  add_foreign_key "usuarios", "tipo_usuarios"
 end
