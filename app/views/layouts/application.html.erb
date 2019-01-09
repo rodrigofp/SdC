@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SdC</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render partial: "shared/notify" %>
     <script>
       $('.carousel').carousel({
         interval: 3000
@@ -20,14 +22,14 @@
       <div id="content">
         <div class="row justify-content-center">
           <div class="conteudo border-info">
-            <div class="card-content">
-              <%= yield %>
-            </div>
-            <div class="blur"></div>
+          <div class="card-content">
+            <%= yield %>
           </div>
+          <div class="blur background"></div>
         </div>
       </div>
-      <%= render partial: "shared/footer" %>
+    </div>
+    <%= render partial: "shared/footer" %>
     </div>
   </body>
 </html>

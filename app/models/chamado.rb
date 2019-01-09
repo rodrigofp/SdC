@@ -1,12 +1,12 @@
 class Chamado < ApplicationRecord
-  belongs_to :usuario
+  belongs_to :user
   belongs_to :cliente_modulo
   belongs_to :tipo_chamado
   belongs_to :prioridade
   belongs_to :base
 
   validates :base, presence: true
-  validates :usuario, presence: true
+  validates :user, presence: true
   validates :tipo_chamado, presence: true
   validates :cliente_modulo, presence: true
   validates :prioridade, presence: true

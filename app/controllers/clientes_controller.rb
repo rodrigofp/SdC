@@ -1,6 +1,7 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
   before_action :get_modulos, only: [:edit, :show, :update]
+  before_action :authenticate_user!
   # GET /clientes
   # GET /clientes.json
   def index
@@ -72,6 +73,6 @@ class ClientesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params
-      params.require(:cliente).permit(:nome)
+      params.require(:cliente).permit(:nome, cliente_modulos_attributes: [:id, :modulo_id, :_destroy])
     end
 end

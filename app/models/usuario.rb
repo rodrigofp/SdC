@@ -4,12 +4,16 @@ class Usuario < ApplicationRecord
 
   has_many :contatos, dependent: :delete_all, inverse_of: :usuario
 
+  has_secure_password
+
+  validates :password, presence: true, length: {minimum: 6}
   validates :nome, presence: true, length: { minimum: 3 }
   validates :tipo_usuario, presence: true 
   validates :cliente, presence: true
-  validates :senha, presence: true
   validates :cpf, presence: true, uniqueness: true
   validate :validate_cpf
+
+  before_save { self.cpf = CPF.new(self.cpf).formatted }
 
   validates_associated :contatos
 

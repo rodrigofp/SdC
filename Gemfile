@@ -15,7 +15,11 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
-
+#Flexible authentication solution for Rails with Warden
+gem 'devise'
+# This is a rails gem that includes the bootstrap-notify styles.
+gem 'bootstrap_notify', '~> 0.0.5'
+# Should do the intellisense but doesnt work very well
 gem 'solargraph'
 # Pagination library for Rails, Sinatra, Merb, DataMapper, and more
 gem 'will_paginate', '~> 3.1.0'
@@ -29,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+#Garante encriptografia do password_digest
+gem 'bcrypt'
 
 
 gem 'webpacker'

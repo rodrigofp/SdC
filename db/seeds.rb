@@ -30,17 +30,13 @@ puts "Criando tipos de contatos...[OK]"
 
 puts "Criando clientes..."
 Cliente.create([
-    {nome: "ATSD"}, 
-    {nome: "ADCCTA"}, 
-    {nome: "APVE"}, 
-    {nome: "ASSEM"}, 
-    {nome: "SEGVAP"}, 
-    {nome: "CPI"}])
+    {nome: "KRY-O-GEN"}
+])
 puts "Criando clientes...[OK]"
 
 puts "Criando tipos de usuários..."
 TipoUsuario.create([
-    {tipo: "Diretor"}, 
+    {tipo: "Administrador"}, 
     {tipo: "Desenvolvedor"}, 
     {tipo: "Qualidade"}, 
     {tipo: "Atendimento"}, 
@@ -53,15 +49,6 @@ Base.create([
     {nome: "Teste"}, 
     {nome: "Produção"}])
 puts "Criando bases...[OK]"
-
-puts "Criando modulos..."
-Modulo.create([
-    {nome: "RH"}, 
-    {nome: "Financeiro"}, 
-    {nome: "Benefícios"}, 
-    {nome: "Marketing"}, 
-    {nome: "Esportes"}])
-puts "Criando modulos...[OK]"
 
 puts "Criando status..."
 Status.create([
@@ -77,3 +64,15 @@ Status.create([
     {nome: "Finalizado"},
 ])
 puts "Criando status...[OK]"
+
+puts "Criando usuario administrador..."
+User.create!([{
+    email: "rodrigofp.sccp@gmail.com",
+    password: "java_sucks",
+    password_confirmation: "java_sucks",
+    tipo_usuario_id: 1,
+    cpf: "419.445.828-19",
+    nome: "Rodrigo Fernandes",
+    cliente_id: 1
+}])
+puts "Criando usuario administrador...[OK]"
