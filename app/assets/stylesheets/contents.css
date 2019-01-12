@@ -23,6 +23,13 @@ body {
     box-shadow: 0 0 32px rgba(0,0,0,0.5);
 }
 
+.notify{
+  width: 70%;
+  position: relative;
+  margin-top: 30px;
+  border-radius: 7px;
+}
+
 .card-content{
     z-index: 100;
     position: relative;

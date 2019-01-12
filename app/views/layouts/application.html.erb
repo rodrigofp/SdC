@@ -8,7 +8,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= render partial: "shared/notify" %>
     <script>
       $('.carousel').carousel({
         interval: 3000
@@ -17,6 +16,9 @@
   </head>
 
   <body class="background">
+    <script>
+      $.notify("<%= notice %>", { className:'success', globalPosition:'top center'} );
+    </script>
     <div class="text-center container-fluid" id="wrapper">
       <%= render partial: "shared/menu" %>
       <div id="content">

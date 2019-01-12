@@ -17,8 +17,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 #Flexible authentication solution for Rails with Warden
 gem 'devise'
+#Helper for nested forms
+gem 'cocoon'
 # This is a rails gem that includes the bootstrap-notify styles.
-gem 'bootstrap_notify', '~> 0.0.5'
+gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
 # Should do the intellisense but doesnt work very well
 gem 'solargraph'
 # Pagination library for Rails, Sinatra, Merb, DataMapper, and more

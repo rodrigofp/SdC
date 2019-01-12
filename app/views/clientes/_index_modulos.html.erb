@@ -1,6 +1,5 @@
 <h3>Módulos do Cliente</h3>
 
-<p id="notice" class="notifications top-center"><%= notice %></p>
 <table class="table table-hove text-left">
   <thead>
     <tr>
@@ -23,5 +22,5 @@
 <% end %>
 
 <div class="actions d-flex justify-content-center">
-    <%= link_to 'Novo Módulo', new_cliente_modulo_path(:cliente => @cliente.id), class: "btn btn-grad bg-grad" %>
+    <%= link_to 'Adicionar Módulo', new_cliente_modulo_path(:cliente => @cliente.id), class: "btn btn-grad bg-grad" %>
 </div>

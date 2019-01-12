@@ -1,7 +1,6 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
-  before_action :get_modulos, only: [:edit, :show, :update]
-  before_action :authenticate_user!
+  before_action :get_modulos, only: [:edit, :show, :update, :new]
   # GET /clientes
   # GET /clientes.json
   def index
@@ -16,6 +15,7 @@ class ClientesController < ApplicationController
   # GET /clientes/new
   def new
     @cliente = Cliente.new
+    @cliente.cliente_modulos.build
   end
 
   # GET /clientes/1/edit
@@ -69,7 +69,8 @@ class ClientesController < ApplicationController
     end
 
     def get_modulos
-      @cliente_modulos = @cliente.cliente_modulos.paginate(:page => params[:page], :per_page => 5)
+      #@cliente_modulos = @cliente.cliente_modulos
+      @modulos_all = Modulo.all
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params

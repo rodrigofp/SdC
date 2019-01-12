@@ -16,7 +16,7 @@ class ClienteModulosController < ApplicationController
   # GET /cliente_modulos/new
   def new
     @cliente_modulo = ClienteModulo.new
-    @cliente_modulo.cliente_id = params[:cliente]
+    @cliente_modulo.cliente_id = @clientes_id
   end
 
   # GET /cliente_modulos/1/edit
@@ -27,14 +27,16 @@ class ClienteModulosController < ApplicationController
   # POST /cliente_modulos.json
   def create
     @cliente_modulo = ClienteModulo.new(cliente_modulo_params)
-
+    x = @cliente_modulo
+    
     respond_to do |format|
       if @cliente_modulo.save
-        format.html { redirect_to edit_cliente_path(Cliente.find(@cliente_modulo.cliente_id)), notice: "Módulo #{t('messages.created')}." }
+        format.html { redirect_to edit_cliente_path(Cliente.find(@cliente_modulo.cliente_id)), notice: "Módulo #{t('messages.added')}" }
         format.json { render :show, status: :created, location: @cliente_modulo }
       else
         format.html { render :new }
         format.json { render json: @cliente_modulo.errors, status: :unprocessable_entity }
+        @cliente_modulo = x
       end
     end
   end
@@ -44,7 +46,7 @@ class ClienteModulosController < ApplicationController
   def update
     respond_to do |format|
       if @cliente_modulo.update(cliente_modulo_params)
-        format.html { redirect_to edit_cliente_path(Cliente.find(@cliente_modulo.cliente_id)), notice: "Cliente-Módulo #{t('messages.updated')}." }
+        format.html { redirect_to edit_cliente_path(Cliente.find(@cliente_modulo.cliente_id)), notice: "Cliente-Módulo #{t('messages.updated')}" }
         format.json { render :show, status: :ok, location: @cliente_modulo }
       else
         format.html { render :edit }
@@ -58,7 +60,7 @@ class ClienteModulosController < ApplicationController
   def destroy
     @cliente_modulo.destroy
     respond_to do |format|
-      format.html { redirect_to cliente_modulos_url, notice: "Cliente-Módulo #{t('messages.destroyed')}." }
+      format.html { redirect_to edit_cliente_path(Cliente.find(@cliente_modulo.cliente_id)), notice: "Cliente-Módulo #{t('messages.destroyed')}" }
       format.json { head :no_content }
     end
   end
@@ -71,7 +73,9 @@ class ClienteModulosController < ApplicationController
 
     def get_options
       @modulos_all = Modulo.all
-      @clientes_id = params[:cliente]
+      if params[:cliente]
+        @clientes_id = params[:cliente]
+      end
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_modulo_params

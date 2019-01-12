@@ -30,7 +30,7 @@ class AtendimentoChamadosController < ApplicationController
 
     respond_to do |format|
       if @atendimento_chamado.save
-        format.html { redirect_to edit_chamado_path(@atendimento_chamado.chamado), notice: "Atendimento #{t('messages.created')}." }
+        format.html { redirect_to edit_chamado_path(@atendimento_chamado.chamado), notice: "Atendimento #{t('messages.created')}" }
         format.json { render :show, status: :created, location: @atendimento_chamado }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class AtendimentoChamadosController < ApplicationController
   def update
     respond_to do |format|
       if @atendimento_chamado.update(atendimento_chamado_params)
-        format.html { redirect_to edit_chamado_path(@atendimento_chamado.chamado), notice: "Atendimento #{t('messages.updated')}." }
+        format.html { redirect_to edit_chamado_path(@atendimento_chamado.chamado), notice: "Atendimento #{t('messages.updated')}" }
         format.json { render :show, status: :ok, location: @atendimento_chamado }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class AtendimentoChamadosController < ApplicationController
   def destroy
     @atendimento_chamado.destroy
     respond_to do |format|
-      format.html { redirect_to atendimento_chamados_url, notice: "Atendimento #{t('messages.destroyed')}." }
+      format.html { redirect_to atendimento_chamados_url, notice: "Atendimento #{t('messages.destroyed')}" }
       format.json { head :no_content }
     end
   end

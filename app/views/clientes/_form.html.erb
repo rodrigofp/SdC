@@ -17,7 +17,17 @@
     <%= form.text_field :nome, class: "form-control col-4" %>
     <%= render 'shared/invalid_feedback'%>
   </div>
-
+  <h3>Vincular módulos </h3>
+  <div id="cliente_modulos">
+    <%= form.fields_for :cliente_modulos do |cliente_modulo| %>
+      <%= render 'cliente_modulo_fields', f: cliente_modulo %>
+    <% end %>
+  </div>
+    
+  <div class="links">
+    <%= link_to_add_association 'Vincular módulo', form, :cliente_modulos %>
+    <br/><br/>
+  </div>
   <div class="actions d-flex justify-content-center">
     <%= form.submit "Salvar", class: "btn btn-grad bg-grad" %>
   </div>

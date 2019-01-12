@@ -4,6 +4,7 @@ class ClienteModulo < ApplicationRecord
 
   has_many :chamados, inverse_of: :cliente_modulo
 
+  validates :modulo, uniqueness: { scope: :cliente }
   validates :cliente, presence: true
   validates :modulo, presence: true
 

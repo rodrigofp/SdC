@@ -11,6 +11,7 @@
     edit: Alterar
     details: Detalhes
   messages:
+    added: "adicionado com sucesso."
     confirm: "Deseja realmente excluir?"
     created: "cadastrado com sucesso."
     updated: "atualizado com sucesso."

@@ -1,16 +1,16 @@
-<h2>Forgot your password?</h2>
-
+<h1 class="card-header bg-grad">Esqueceu sua senha?</h1>
+<br />
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field row form-group justify-content-center">
+    <%= f.label :email, class: "col-2 col-form-label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-4" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="actions d-flex justify-content-center">
+    <%= f.submit "Enviar instruções de nova senha", class: "btn btn-grad bg-grad" %>
   </div>
 <% end %>
-
+<br />
 <%= render "devise/shared/links" %>
