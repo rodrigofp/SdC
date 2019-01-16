@@ -1,11 +1,16 @@
 
 <h1 class="card-header bg-grad"><%= t('labels.details') %> Cliente</h1>
-
+<br/>
 
 <p>
   <strong>Nome:</strong>
   <%= @cliente.nome %>
 </p>
+<% @cliente.cliente_modulos.each do |cliente_modulo|%>
+  <p>
+    <strong>Módulo vinculado:</strong>
+    <%= cliente_modulo.modulo.nome%>
+<% end %>
 <p>
   <strong>Criado em:</strong>
   <%= l @cliente.created_at %>

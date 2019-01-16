@@ -14,7 +14,7 @@
     <tbody>
         <% @atendimentos.each do |atendimento_chamado| %>
         <tr>
-            <th><%= atendimento_chamado.usuario.nome %></th>
+            <th><%= atendimento_chamado.user.nome %></th>
             <th><%= atendimento_chamado.status.nome %></th>
             <th><%= atendimento_chamado.base.nome %></th>
             <th><%= atendimento_chamado.data %></th>
@@ -23,9 +23,11 @@
         <% end %>
     </tbody>
 </table>
-<div class="apple_pagination d-flex justify-content-center">
-<%= will_paginate @atendimentos %>
-</div>
+
+<% if @atendimentos.count > 10 %>
+    <%= render :partial => 'shared/pagination', locals: { collection: @atendimentos } %>
+<% end %>
+
 
 <br>
 <div class="actions d-flex justify-content-center">

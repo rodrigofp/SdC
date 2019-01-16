@@ -18,7 +18,7 @@ class ChamadosController < ApplicationController
 
   # GET /chamados/new
   def new
-    @chamado = Chamado.new
+    @chamado = current_user.chamados.build
     @chamado.atendimento_chamados.build
   end
 
@@ -75,9 +75,8 @@ class ChamadosController < ApplicationController
     end
 
     def get_options
-      @usuarios_all = Usuario.all
       @bases_all = Base.all
-      @cliente_modulos_all = ClienteModulo.all
+      @cliente_modulos_all = current_user.cliente.cliente_modulos
       @tipo_chamados_all = TipoChamado.all
       @prioridades_all = Prioridade.all
     end
@@ -96,14 +95,14 @@ class ChamadosController < ApplicationController
     end
 
     def set_atendimento_chamado
-      @chamado.atendimento_chamados[0].usuario_id = @chamado.usuario_id
+      @chamado.atendimento_chamados[0].user_id = current_user.id
       @chamado.atendimento_chamados[0].base_id = @chamado.base_id
       @chamado.atendimento_chamados[0].status_id = 1
       @chamado.atendimento_chamados[0].data = @chamado.data_abertura
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def chamado_params
-      params.require(:chamado).permit(:usuario_id, :data_abertura, :data_fechamento, :cliente_modulo_id, :base_id, :tipo_chamado_id, :prioridade_id, :numerador,
+      params.require(:chamado).permit(:user_id, :data_abertura, :data_fechamento, :cliente_modulo_id, :base_id, :tipo_chamado_id, :prioridade_id, :numerador,
       atendimento_chamados_attributes:[:descricao])
     end
 end

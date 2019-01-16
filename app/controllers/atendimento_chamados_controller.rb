@@ -15,7 +15,7 @@ class AtendimentoChamadosController < ApplicationController
 
   # GET /atendimento_chamados/new
   def new
-    @atendimento_chamado = AtendimentoChamado.new
+    @atendimento_chamado = current_user.atendimento_chamados.build
     @atendimento_chamado.chamado_id = params[:chamado]
   end
 
@@ -70,7 +70,6 @@ class AtendimentoChamadosController < ApplicationController
     end
 
     def get_options
-      @usuarios_all = Usuario.all
       @bases_all = Base.all
       @statuses_all = Status.all
       @chamado_id = params[:chamado]
@@ -78,6 +77,6 @@ class AtendimentoChamadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def atendimento_chamado_params
-      params.require(:atendimento_chamado).permit(:chamado_id, :usuario_id, :base_id, :data, :status_id, :descricao)
+      params.require(:atendimento_chamado).permit(:chamado_id, :user_id, :base_id, :data, :status_id, :descricao)
     end
 end

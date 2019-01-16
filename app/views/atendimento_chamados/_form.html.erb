@@ -12,12 +12,10 @@
   <% end %>
 
   <div class="hidden">
-    <%= form.label :chamado_id %>
     <%= form.text_field :chamado_id, :value => @chamado_id %>
   </div>
 
   <div class="hidden">
-    <%= form.label :data %>
     <%= form.datetime_select :data %>
   </div>
 
@@ -27,10 +25,8 @@
     <%= render 'shared/invalid_feedback'%>
   </div>
 
-  <div class="field row form-group justify-content-center">
-    <%= form.label :usuario_id, class: "col-2 col-form-label" %>
-    <%= form.collection_select :usuario_id, @usuarios_all, :id, :nome, {}, { class: "form-control col-4" } %>
-    <%= render 'shared/invalid_feedback'%>
+  <div class="hidden">
+    <%= form.text_field :user_id %>
   </div>
 
   <div class="field row form-group justify-content-center">
