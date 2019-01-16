@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :prioridades
   resources :contatos
   resources :tipo_contatos
-  resources :usuarios
   resources :clientes
   resources :tipo_usuarios
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
