@@ -19,6 +19,8 @@ gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 gem 'devise'
 #Helper for nested forms
 gem 'cocoon'
+#Simple Rails app configuration
+gem "figaro"
 # This is a rails gem that includes the bootstrap-notify styles.
 gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
 # Should do the intellisense but doesnt work very well
