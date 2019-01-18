@@ -4,6 +4,16 @@
     <%= devise_error_messages! %>
 
   <div class="field row form-group justify-content-center">
+    <%= f.label :cliente, class: "col-2 col-form-label" %><br />
+    <%= f.text_field :cliente, :value => current_user.cliente.nome, class: "form-control col-4", :readonly => true %>
+  </div>
+
+  <div class="field row form-group justify-content-center">
+    <%= f.label :tipo_usuario, class: "col-2 col-form-label" %>
+    <%= f.text_field :tipo_usuario, :value => current_user.tipo_usuario.tipo, class: "form-control col-4", :readonly => true %>
+  </div>
+
+  <div class="field row form-group justify-content-center">
     <%= f.label :nome, class: "col-2 col-form-label" %><br />
     <%= f.text_field :nome, class: "form-control col-4" %>
   </div>

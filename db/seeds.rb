@@ -67,7 +67,7 @@ puts "Criando status...[OK]"
 
 puts "Criando usuario administrador..."
 User.create!([{
-    email: "rodrigofp.sccp@gmail.com",
+    email: "rodrigo_fp@ymail.com",
     password: "java_sucks",
     password_confirmation: "java_sucks",
     tipo_usuario_id: 1,

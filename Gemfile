@@ -17,6 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 #Flexible authentication solution for Rails with Warden
 gem 'devise'
+#An invitation strategy for devises
+gem 'devise_invitable', '~> 1.7.0'
 #Helper for nested forms
 gem 'cocoon'
 #Simple Rails app configuration

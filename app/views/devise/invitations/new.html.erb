@@ -1,0 +1,31 @@
+<h1 class="card-header bg-grad"><%= t "devise.invitations.new.header" %></h2>
+<br/>
+<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field row form-group justify-content-center">
+    <%= f.label :email, class: "col-2 col-form-label "%>
+    <%= f.email_field :email, class: "form-control col-4"%>
+  </div>
+
+  <div class="field row form-group justify-content-center">
+    <%= f.label :cliente_id, class: "col-2 col-form-label" %>
+    <%= f.collection_select :cliente_id, @clientes_all, :id, :nome, {}, class: "form-control col-4"%>
+  </div>
+
+  <div class="field row form-group justify-content-center">
+    <%= f.label :tipo_usuario_id, class: "col-2 col-form-label" %>
+    <%= f.collection_select :tipo_usuario_id, @tipo_usuarios_all, :id, :tipo, {}, class: "form-control col-4"%>
+  </div>
+
+  <div class="field row form-group justify-content-center">
+    <%= f.label :invitation_limit, "Pode enviar convites?", class: "col-2 col-form-label" %>
+    <%= f.collection_select :invitation_limit, @invitation_limits_all, :last, :first, {}, class: "form-control col-4"%>
+  </div>
+
+  <div class="actions d-flex justify-content-center">
+    <%= f.submit t("devise.invitations.new.submit_button"), class: "btn btn-grad bg-grad" %>
+  </div>
+  <br/>
+  <%= render :partial => 'shared/button_back', locals: { path: root_path } %>
+<% end %>
