@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
 
   #CHECK IF USER TYPE IS ADMIN TO ALLOW INVITATIONS
   def check_admin
-    puts "ESSE CARA TEM #{current_user.invitation_limit} SOBRANDO."
     unless current_user == nil || current_user.invitation_limit == nil
       redirect_to root_path, alert: "Você não tem permissão para concluir esta ação!"
     end
