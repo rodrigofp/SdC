@@ -18,6 +18,7 @@
   <body class="background">
     <script>
       $.notify("<%= notice %>", { className:'success', globalPosition:'top center'} );
+      $.notify("<%= alert %>", { className:'error', globalPosition:'top center'} );
     </script>
     <div class="text-center container-fluid" id="wrapper">
       <%= render partial: "shared/menu" %>

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :authenticate_user!
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :get_options, if: :devise_controller?
+    before_action :check_admin, :only => [:new], if: :devise_controller?
 
     protected
 
@@ -15,5 +16,13 @@ class ApplicationController < ActionController::Base
     @clientes_all = Cliente.all
     @tipo_usuarios_all = TipoUsuario.all
     @invitation_limits_all = {"Sim" => nil, "Não" => 0}
+  end
+
+  #CHECK IF USER TYPE IS ADMIN TO ALLOW INVITATIONS
+  def check_admin
+    puts "ESSE CARA TEM #{current_user.invitation_limit} SOBRANDO."
+    unless current_user == nil || current_user.invitation_limit == nil
+      redirect_to root_path, alert: "Você não tem permissão para concluir esta ação!"
+    end
   end
 end
