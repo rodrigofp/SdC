@@ -65,7 +65,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "SdC_#{Rails.env}"
 
-  config.action_mailer.default_url_options = { host: 'mysterious-caverns-96232.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'sdc-atsd.herokuapp.com' }
 
   config.action_mailer.perform_caching = false
 
