@@ -75,13 +75,13 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 465,
-    domain: ENV["gmail_domain"],
+    address: "smtp.@atsd.com.br",
+    port: 587,
+    domain: ENV["atsd_domain"],
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["gmail_username"],
-    password: ENV["gmail_password"]
+    user_name: ENV["atsd_username"],
+    password: ENV["atsd_password"]
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
