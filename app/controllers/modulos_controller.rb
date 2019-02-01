@@ -42,7 +42,7 @@ class ModulosController < ApplicationController
   def update
     respond_to do |format|
       if @modulo.update(modulo_params)
-        format.html { redirect_to @modulo, notice: "Módulo #{t('messages.update')}" }
+        format.html { redirect_to @modulo, notice: "Módulo #{t('messages.updated')}" }
         format.json { render :show, status: :ok, location: @modulo }
       else
         format.html { render :edit }

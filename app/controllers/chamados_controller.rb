@@ -76,7 +76,11 @@ class ChamadosController < ApplicationController
 
     def get_options
       @bases_all = Base.all
-      @cliente_modulos_all = current_user.cliente.cliente_modulos
+      if current_user.tipo_usuario.tipo == "Cliente" 
+        @cliente_modulos_all = current_user.cliente.cliente_modulos
+      else
+        @cliente_modulos_all = ClienteModulo.all
+      end
       @tipo_chamados_all = TipoChamado.all
       @prioridades_all = Prioridade.all
     end

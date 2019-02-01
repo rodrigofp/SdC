@@ -8,7 +8,6 @@
             <th>Status</th>
             <th>Base</th>
             <th>Data</th>
-            <th colspan="3"></th>
         </tr>
     </thead>
     <tbody>
@@ -17,8 +16,7 @@
             <th><%= atendimento_chamado.user.nome %></th>
             <th><%= atendimento_chamado.status.nome %></th>
             <th><%= atendimento_chamado.base.nome %></th>
-            <th><%= atendimento_chamado.data %></th>
-            <%= render :partial => 'shared/button_index', locals: { show_path: atendimento_chamado, edit_path: edit_atendimento_chamado_path(atendimento_chamado, :chamado => @chamado.id) } %>
+            <th><%= atendimento_chamado.data.to_s(:custom_datetime) %></th>
         </tr>
         <% end %>
     </tbody>

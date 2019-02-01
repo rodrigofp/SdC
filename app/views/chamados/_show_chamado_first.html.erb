@@ -26,7 +26,7 @@
 
 <p>
   <strong>Data abertura:</strong>
-  <%= @chamado.data_abertura %>
+  <%= @chamado.data_abertura.to_s(:custom_datetime) %>
 </p>
 
 <p>

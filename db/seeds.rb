@@ -30,7 +30,8 @@ puts "Criando tipos de contatos...[OK]"
 
 puts "Criando clientes..."
 Cliente.create([
-    {nome: "KRY-O-GEN"}
+    {nome: "KRY-O-GEN"},
+    {nome: "CLIENTE 01"}
 ])
 puts "Criando clientes...[OK]"
 
@@ -65,7 +66,7 @@ Status.create([
 ])
 puts "Criando status...[OK]"
 
-puts "Criando usuario administrador..."
+puts "Criando usuarios..."
 User.create!([{
     email: "rodrigo_fp@ymail.com",
     password: "java_sucks",
@@ -74,5 +75,41 @@ User.create!([{
     cpf: "419.445.828-19",
     nome: "Rodrigo Fernandes",
     cliente_id: 1
+},
+{
+    email: "dev_01@kryogen.com.br",
+    password: "java_sucks",
+    password_confirmation: "java_sucks",
+    tipo_usuario_id: 2,
+    cpf: "521.835.620-48",
+    nome: "Desenvolvedor 01",
+    cliente_id: 1
+},
+{
+    email: "qualidade@kryogen.com.br",
+    password: "java_sucks",
+    password_confirmation: "java_sucks",
+    tipo_usuario_id: 3,
+    cpf: "461.526.120-98",
+    nome: "Qualidade",
+    cliente_id: 1
+},
+{
+    email: "atendimento@kryogen.com.br",
+    password: "java_sucks",
+    password_confirmation: "java_sucks",
+    tipo_usuario_id: 4,
+    cpf: "933.398.980-30",
+    nome: "Atendimento",
+    cliente_id: 1
+},
+{
+    email: "cliente@cliente01.com.br",
+    password: "java_sucks",
+    password_confirmation: "java_sucks",
+    tipo_usuario_id: 5,
+    cpf: "631.224.730-97",
+    nome: "Cliente01",
+    cliente_id: 2
 }])
-puts "Criando usuario administrador...[OK]"
+puts "Criando usuarios...[OK]"

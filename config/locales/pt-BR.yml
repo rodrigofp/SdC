@@ -22,3 +22,6 @@
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próxima"
+  time:
+    formats:
+      default: '%d/%m/%Y %H:%M'

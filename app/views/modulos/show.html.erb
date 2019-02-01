@@ -9,12 +9,12 @@
 
 <p>
   <strong>Criado em:</strong>
-  <%= @modulo.created_at %>
+  <%= @modulo.created_at.to_s(:custom_datetime) %>
 </p>
 
 <p>
   <strong>Alterado em:</strong>
-  <%= @modulo.updated_at %>
+  <%= @modulo.updated_at.to_s(:custom_datetime) %>
 </p>
 
 

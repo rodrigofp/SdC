@@ -10,6 +10,7 @@
       <th>Usuario</th>
       <th>Prioridade</th>
       <th>Tipo chamado</th>
+      <th>Status Atual</th>
       <th>Data abertura</th>
       <th>Data fechamento</th>
       <th colspan="3"></th>
@@ -24,7 +25,8 @@
         <td><%= chamado.user.nome %></td>
         <td><%= chamado.prioridade.nome %></td>
         <td><%= chamado.tipo_chamado.tipo %></td>
-        <td><%= chamado.data_abertura %></td>
+        <td><%= chamado.atendimento_chamados.last.status.nome %>
+        <td><%= chamado.data_abertura.to_s(:custom_datetime) %></td>
         <td><%= chamado.data_fechamento %></td>
         <%= render :partial => 'shared/button_index', locals: { show_path: chamado, edit_path: edit_chamado_path(chamado) }%>
       </tr>

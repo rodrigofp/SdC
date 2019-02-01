@@ -17,7 +17,7 @@
 </p>
 <p>
   <strong>Alterado em:</strong>
-  <%= l @cliente.updated_at %>
+  <%= l @cliente.updated_at  %>
 </p>
 <%= render :partial => 'shared/button_edit', locals: { path: edit_cliente_path(@cliente) }%>
 <%= render :partial => 'shared/button_back', locals: { path: clientes_path }%>
