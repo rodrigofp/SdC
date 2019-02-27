@@ -45,3 +45,49 @@ body {
     top: 0;
     z-index: 80;
 }
+
+.margin-bottom{
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.circle{
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  border-radius: 50%; /* the magic */
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  font-size: 56px;
+  font-weight: 700;
+  margin: 0 auto 40px;
+}
+
+.circle-grad{
+  border-color: #2BC0E4;
+}
+
+.text-grad, .circle-grad{
+  color: #2BC0E4;
+}
+
+.circle-ok{
+  border-color: #8ff791;
+}
+
+.text-ok, .circle-ok{
+  color: #8ff791; 
+}
+
+.circle-aviso{
+  border-color: #FFD06B;  
+}
+
+.text-aviso, .circle-aviso{
+  color: #FFD06B;
+}
+
+.circle-excluir{
+  border-color: #FF6B6B;
+  color: #FF6B6B;
+}

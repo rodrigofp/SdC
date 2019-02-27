@@ -1,5 +1,5 @@
 /* BOTOES E GRADIENTES */
-.btn-grad:hover, .btn-excluir:hover, .btn-voltar:hover { 
+.btn-grad:hover, .btn-excluir:hover, .btn-voltar:hover, .btn-aviso:hover, .btn-ok:hover { 
     background-position: right center; 
     color: white;
 }
@@ -9,7 +9,7 @@
     color: white;
 }
 
-.btn-grad, .btn-excluir, .btn-voltar {
+.btn-grad, .btn-excluir, .btn-voltar, .btn-aviso, .btn-ok{
     transition: 0.5s;
     background-size: 220% auto;
 }

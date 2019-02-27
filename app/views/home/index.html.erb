@@ -1,19 +1,27 @@
 <h1 class="card-header bg-grad">Dashbord</h1>
-<div class="row text-center">
-    <% @clientes_all.each do |cliente|%>
-        <% @tipo_chamados_all.each do |tipo_chamado| %>
-            <div class=col-4>
-                <div class="card bg-transparent">
-                    <div class="card card-header <%= classe_para_cabecalho(cliente, tipo_chamado) %>">
+<div class="container">
+    <div class="row text-center">
+        <% @clientes_all.each do |cliente|%>
+            <div class="col-12">
+                <div class="card bg-transparent margin-bottom shadow rounded">
+                    <div class="card card-header bg-grad">
                         <h4> <%= cliente.nome %></h4>
                     </div>
-                    <div class="card-body text-primary">
-                        <p><%= calcula_total_chamados_abertos(cliente, tipo_chamado) %>
-                        <br />
-                        <%= tipo_chamado.tipo %></p>
+                    <div class="card-body">
+                        <div class="row">
+                            <% @tipo_chamados_all.each do |tipo_chamado| %>
+                                <div class="col-4">
+                                    <div class="align-middle circle <%= classe_para_dashboard(cliente, tipo_chamado, "circulo") %>">
+                                        <%= calcula_total_chamados_abertos(cliente, tipo_chamado) %>
+                                    </div>
+                                    <br />
+                                    <h4 class="font-weight-bold <%= classe_para_dashboard(cliente, tipo_chamado, "label") %>"><%= tipo_chamado.tipo %>(s)</h4>
+                                </div>
+                            <%end%>
+                        </div>    
                     </div>
                 </div>
             </div>
-        <%end%>    
-    <%end%>
+        <%end%>
+    </div>
 </div>

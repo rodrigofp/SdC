@@ -18,18 +18,19 @@ class HomeController < ApplicationController
   end
   helper_method :calcula_total_chamados_abertos
 
-  def classe_para_cabecalho(cliente, tipo_chamado)
+  def classe_para_dashboard(cliente, tipo_chamado, onde)
     qtd = calcula_total_chamados_abertos(cliente, tipo_chamado)
     case qtd
     when 0
-      "bg-grad"
+      onde == "circulo" ? "btn-grad bg-grad" : "text-grad"
     when 1..2
-      "bg-ok"
+      onde == "circulo" ? "btn-ok bg-ok" : "text-ok"
     when 3..4
-      "bg-aviso"
+      onde == "circulo" ? "btn-aviso bg-aviso" : "text-aviso"
     else
-      "bg-excluir"
+      onde == "circulo" ? "btn-excluir bg-excluir" : "text-excluir"
     end
   end
-  helper_method :classe_para_cabecalho
+  helper_method :classe_para_dashboard
+
 end
