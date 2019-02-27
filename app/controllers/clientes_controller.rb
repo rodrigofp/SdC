@@ -1,6 +1,5 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
-  before_action :get_modulos, only: [:edit, :show, :update, :new]
   # GET /clientes
   # GET /clientes.json
   def index
