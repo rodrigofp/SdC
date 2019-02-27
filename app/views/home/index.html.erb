@@ -1,12 +1,19 @@
 <h1 class="card-header bg-grad">Dashbord</h1>
 <div class="row text-center">
-    <div class="col-2"></div>
-    <div class="col-8">
-        <br />
-        <h1>UNDER DEVELOPMENT</h1>
-        <br />
-        <h2>Be patiente, please...</h2>
-        <br />    
-        <h4>A team of trained monkeys is smashing the keybord randonly until the code works, this will be read in a minute or two, trust me! </h4>
-    </div>
+    <% @clientes_all.each do |cliente|%>
+        <% @tipo_chamados_all.each do |tipo_chamado| %>
+            <div class=col-4>
+                <div class="card bg-transparent">
+                    <div class="card card-header <%= classe_para_cabecalho(cliente, tipo_chamado) %>">
+                        <h4> <%= cliente.nome %></h4>
+                    </div>
+                    <div class="card-body text-primary">
+                        <p><%= calcula_total_chamados_abertos(cliente, tipo_chamado) %>
+                        <br />
+                        <%= tipo_chamado.tipo %></p>
+                    </div>
+                </div>
+            </div>
+        <%end%>    
+    <%end%>
 </div>

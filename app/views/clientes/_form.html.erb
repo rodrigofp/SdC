@@ -16,19 +16,8 @@
     <%= form.label :nome, class: "col-2 col-form-label" %>
     <%= form.text_field :nome, class: "form-control col-4" %>
     <%= render 'shared/invalid_feedback'%>
-  </div>
-  <hr>
-  <h4>Vincular módulos </h4>
-  <br/>
-  <div id="cliente_modulos">
-    <%= form.fields_for :cliente_modulos do |cliente_modulo| %>
-      <%= render 'cliente_modulo_fields', f: cliente_modulo %>
-    <% end %>
-  </div>
-    
-  <div class="links d-flex justify-content-center">
-    <%= link_to_add_association 'Adicionar novo módulo', form, :cliente_modulos, class: "btn btn-sm btn-grad bg-grad" %>
-  </div>
+  </div> 
+
   <br/>
   <div class="actions d-flex justify-content-center">
     <%= form.submit "Salvar", class: "btn btn-grad bg-grad" %>

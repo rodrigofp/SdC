@@ -4,7 +4,7 @@
     color: white;
 }
 
-.bg-grad, .bg-excluir, .bg-voltar{
+.bg-grad, .bg-excluir, .bg-voltar, .bg-aviso, .bg-ok{
     background-size: 200% auto;
     color: white;
 }
@@ -24,6 +24,14 @@
 
 .bg-excluir{
     background-image: linear-gradient(35deg, #FF6B6B 0%, #EAECC6 51%, #FF6B6B 100%);
+}
+
+.bg-aviso{
+    background-image: linear-gradient(35deg, #FFD06B, #EAECC6 51%, #FFD06B 100%);
+}
+
+.bg-ok{
+    background-image: linear-gradient(35deg, #8ff791, #EAECC6 51%, #8ff791 100%);    
 }
 
 .btn-bottom{

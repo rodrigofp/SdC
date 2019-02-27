@@ -20,3 +20,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require notifyjs
+//= require fusioncharts/fusioncharts
+//= require fusioncharts/fusioncharts.charts
+//= require fusioncharts/themes/fusioncharts.theme.fint

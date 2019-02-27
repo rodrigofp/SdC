@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :chamados, dependent: :delete_all, inverse_of: :user
   has_many :atendimento_chamados, dependent: :delete_all, inverse_of: :user
 
-  validates :nome, presence: true, length: { minimum: 3 }
+  validates :nome, presence: true, length: { minimum: 2 }
   validates :tipo_usuario, presence: true 
   validates :cliente, presence: true
   validates :cpf, presence: true, uniqueness: true

@@ -42,6 +42,9 @@ gem 'jbuilder', '~> 2.5'
 #Garante encriptografia do password_digest
 gem 'bcrypt'
 
+gem 'faker'
+
+gem 'fusioncharts-rails'
 
 gem 'webpacker'
 #Validate, generate and format CPF/CNPJ numbers. Include command-line tools.

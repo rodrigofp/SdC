@@ -15,7 +15,6 @@ class ClientesController < ApplicationController
   # GET /clientes/new
   def new
     @cliente = Cliente.new
-    @cliente.cliente_modulos.build
   end
 
   # GET /clientes/1/edit
@@ -68,12 +67,8 @@ class ClientesController < ApplicationController
       @cliente = Cliente.find(params[:id])
     end
 
-    def get_modulos
-      #@cliente_modulos = @cliente.cliente_modulos
-      @modulos_all = Modulo.all
-    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params
-      params.require(:cliente).permit(:nome, cliente_modulos_attributes: [:id, :modulo_id, :_destroy])
+      params.require(:cliente).permit(:nome)
     end
 end

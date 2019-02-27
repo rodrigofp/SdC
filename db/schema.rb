@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_002235) do
+ActiveRecord::Schema.define(version: 2019_02_26_233949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,23 +44,16 @@ ActiveRecord::Schema.define(version: 2019_01_18_002235) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "base_id"
-    t.bigint "cliente_modulo_id"
     t.integer "numerador"
     t.bigint "user_id"
+    t.bigint "cliente_id"
+    t.bigint "modulo_id"
     t.index ["base_id"], name: "index_chamados_on_base_id"
-    t.index ["cliente_modulo_id"], name: "index_chamados_on_cliente_modulo_id"
+    t.index ["cliente_id"], name: "index_chamados_on_cliente_id"
+    t.index ["modulo_id"], name: "index_chamados_on_modulo_id"
     t.index ["prioridade_id"], name: "index_chamados_on_prioridade_id"
     t.index ["tipo_chamado_id"], name: "index_chamados_on_tipo_chamado_id"
     t.index ["user_id"], name: "index_chamados_on_user_id"
-  end
-
-  create_table "cliente_modulos", force: :cascade do |t|
-    t.bigint "cliente_id"
-    t.bigint "modulo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cliente_id"], name: "index_cliente_modulos_on_cliente_id"
-    t.index ["modulo_id"], name: "index_cliente_modulos_on_modulo_id"
   end
 
   create_table "clientes", force: :cascade do |t|
@@ -150,12 +143,11 @@ ActiveRecord::Schema.define(version: 2019_01_18_002235) do
   add_foreign_key "atendimento_chamados", "statuses"
   add_foreign_key "atendimento_chamados", "users"
   add_foreign_key "chamados", "bases", column: "base_id"
-  add_foreign_key "chamados", "cliente_modulos"
+  add_foreign_key "chamados", "clientes"
+  add_foreign_key "chamados", "modulos"
   add_foreign_key "chamados", "prioridades"
   add_foreign_key "chamados", "tipo_chamados"
   add_foreign_key "chamados", "users"
-  add_foreign_key "cliente_modulos", "clientes"
-  add_foreign_key "cliente_modulos", "modulos"
   add_foreign_key "contatos", "tipo_contatos"
   add_foreign_key "contatos", "users"
   add_foreign_key "users", "clientes"

@@ -2,27 +2,34 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    get_options
-  end
-
-  def get_options
-    @statuses_all = Status.all
     @clientes_all = Cliente.all
-    @prioridades_all = Prioridade.all
     @tipo_chamados_all = TipoChamado.all
-    @total_chamados = Chamado.all.count
   end
 
-  def get_count_from_status(status)
-    count = 0
-    chamados = Chamado.all
-    chamados.each do |chamado|
-      atendimento = chamado.atendimento_chamados.last
-      if atendimento.status == status
-        count += 1
+  def calcula_total_chamados_abertos(cliente, tipo_chamado)
+    chs = cliente.chamados.where(:tipo_chamado => tipo_chamado)
+    i = 0
+    chs.each do |chamado|
+      if chamado.atendimento_chamados.last.status_id == 1
+        i += 1
       end
     end
-    count
+    i
   end
-  helper_method :get_count_from_status
+  helper_method :calcula_total_chamados_abertos
+
+  def classe_para_cabecalho(cliente, tipo_chamado)
+    qtd = calcula_total_chamados_abertos(cliente, tipo_chamado)
+    case qtd
+    when 0
+      "bg-grad"
+    when 1..2
+      "bg-ok"
+    when 3..4
+      "bg-aviso"
+    else
+      "bg-excluir"
+    end
+  end
+  helper_method :classe_para_cabecalho
 end

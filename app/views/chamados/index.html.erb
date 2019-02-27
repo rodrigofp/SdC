@@ -21,7 +21,7 @@
     <% @chamados.each do |chamado| %>
       <tr>
         <td><%= chamado.numerador %></td>
-        <td><%= chamado.cliente_modulo.options_select %></td>
+        <td><%= "#{chamado.cliente.nome} - #{chamado.modulo.nome}" %></td>
         <td><%= chamado.user.nome %></td>
         <td><%= chamado.prioridade.nome %></td>
         <td><%= chamado.tipo_chamado.tipo %></td>

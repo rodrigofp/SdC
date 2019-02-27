@@ -76,11 +76,8 @@ class ChamadosController < ApplicationController
 
     def get_options
       @bases_all = Base.all
-      if current_user.tipo_usuario.tipo == "Cliente" 
-        @cliente_modulos_all = current_user.cliente.cliente_modulos
-      else
-        @cliente_modulos_all = ClienteModulo.all
-      end
+      @clientes_all = Cliente.all
+      @modulos_all = Modulo.all
       @tipo_chamados_all = TipoChamado.all
       @prioridades_all = Prioridade.all
     end
@@ -106,7 +103,7 @@ class ChamadosController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def chamado_params
-      params.require(:chamado).permit(:user_id, :data_abertura, :data_fechamento, :cliente_modulo_id, :base_id, :tipo_chamado_id, :prioridade_id, :numerador,
+      params.require(:chamado).permit(:user_id, :data_abertura, :data_fechamento, :cliente_id, :modulo_id, :base_id, :tipo_chamado_id, :prioridade_id, :numerador,
       atendimento_chamados_attributes:[:descricao])
     end
 end

@@ -16,7 +16,6 @@ puts "Criando prioridades...[OK]"
 puts "Criando tipos de chamado..."
 TipoChamado.create([
     {tipo: "Erro"}, 
-    {tipo: "Inconsistência"}, 
     {tipo: "Melhoria"}, 
     {tipo: "Nova Funcionalidade"}])
 puts "Criando tipos de chamado...[OK]"
@@ -30,7 +29,7 @@ puts "Criando tipos de contatos...[OK]"
 
 puts "Criando clientes..."
 Cliente.create([
-    {nome: "KRY-O-GEN"}
+    {nome: "ATSD"}
 ])
 puts "Criando clientes...[OK]"
 
